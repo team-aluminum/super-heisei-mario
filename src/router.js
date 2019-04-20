@@ -11,14 +11,14 @@ export default new Router({
       path: '/',
       name: 'Index',
       component () {
-        return import('./views/Index.vue')
+        return import('@/views/Index.vue')
       }
     },
     {
       path: '/playing',
       name: 'Game',
       component () {
-        return import('./views/Game.vue')
+        return import('@/views/Game.vue')
       }
     }
   ]
