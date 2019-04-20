@@ -13,6 +13,13 @@ export default new Router({
       component () {
         return import('./views/Index.vue')
       }
+    },
+    {
+      path: '/playing',
+      name: 'Game',
+      component () {
+        return import('./views/Game.vue')
+      }
     }
   ]
 })
