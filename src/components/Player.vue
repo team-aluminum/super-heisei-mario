@@ -9,7 +9,9 @@ export default {
   computed: {
     playerStyle () {
       return {
-        bottom: this.player.position.current.y + 'px'
+        bottom: this.player.position.current.y + 'px',
+        width: this.player.size.width + 'px',
+        height: this.player.size.height + 'px'
       }
     },
     ...mapGetters({
@@ -23,6 +25,9 @@ export default {
         this.$store.dispatch('clearPlayerEvent')
       }
     }
+  },
+  created () {
+    this.$store.dispatch('setPlayerSize', { width: 30, height: 30 })
   },
   methods: {
     jump () {

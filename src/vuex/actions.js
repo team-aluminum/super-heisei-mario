@@ -8,6 +8,9 @@ export default {
   clearPlayerEvent ({ commit }) {
     commit('CLEAR_PLAYER_EVENT')
   },
+  setPlayerSize ({ commit }, size) {
+    commit('SET_PLAYER_SIZE', size)
+  },
   setPlayerJump ({ commit }, jump) {
     commit('SET_PLAYER_JUMP', jump)
   },

@@ -4,14 +4,26 @@ export default {
       state.player.position.previous,
       state.player.position.current
     )
-    state.player.position.current.x += x
-    state.player.position.current.y += y
+    const tmpPosition = {
+      x: state.player.position.current.x + x,
+      y: state.player.position.current.y + y
+    }
+    // state.objects.forEach(object => {
+    //   const collidingHorizontally = object.x < tmpPosition.x && tmpPosition.x
+    // })
+    Object.assign(
+      state.player.position.current,
+      tmpPosition
+    )
   },
   ADD_PLAYER_EVENT (state, eventName) {
     state.player.events.push(eventName)
   },
   CLEAR_PLAYER_EVENT (state) {
     state.player.events = []
+  },
+  SET_PLAYER_SIZE (state, size) {
+    Object.assign(state.player.size, size)
   },
   SET_PLAYER_JUMP (state, jump) {
     Object.assign(state.player.jump, jump)

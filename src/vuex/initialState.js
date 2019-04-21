@@ -10,6 +10,10 @@ export default {
         x: 0
       }
     },
+    size: {
+      width: 0,
+      height: 0
+    },
     jump: {
       timer: 0,
       frameCount: 0,
