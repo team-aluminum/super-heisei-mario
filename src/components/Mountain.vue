@@ -19,9 +19,9 @@ export default {
 <style lang="stylus" scoped>
 .mountain
   position: absolute
-  width: 300px
+  width: 200px
   height: 0
   border-bottom: 180px solid lightgreen
-  border-left: 240px solid transparent
-  border-right: 240px solid transparent
+  border-left: 100px solid transparent
+  border-right: 100px solid transparent
 </style>

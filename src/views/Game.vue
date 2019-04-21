@@ -3,9 +3,9 @@
   .game__screen
     Player(@change="v => player = v")
     .game__things
-      .game__object(v-for="(object, i) in objects" :key="i"
+      .game__object(v-for="(object, i) in objects" :key="'object:' + i"
         :is="object.component" :data="object.data" :player="player")
-      .game__background(v-for="(background, i) in backgrounds"
+      .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
         :is="background.component" :data="background.data" :player="player")
 </template>
 
