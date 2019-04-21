@@ -1,5 +1,5 @@
 <template lang="pug">
-.player
+.player(:style="playerStyle")
 </template>
 
 <script>
@@ -18,7 +18,10 @@ export default {
   },
   watch: {
     'player.events' () {
-      console.log('event!')
+      if (this.player.events.indexOf('jump') >= 0) {
+        this.jump()
+        this.$store.dispatch('clearPlayerEvent')
+      }
     }
   },
   methods: {
@@ -27,15 +30,20 @@ export default {
         return
       }
       const frameCount = 90
-      this.$store.dispatch('setPlayerJump', {})
-      this.player.jump.frameCount = frameCount
-      this.player.jump.timer = setInterval(() => {
-        if (--this.player.jump.frameCount <= 0) {
-          clearInterval(this.player.jump.timer)
-          this.player.jump.timer = 0
-        }
-        this.player.position.y += (this.player.jump.frameCount < frameCount / 2 || this.player.jump.descenting) ? -3 : 3
-      }, 10)
+      this.$store.dispatch('setPlayerJump', {
+        frameCount,
+        timer: setInterval(() => {
+          this.$store.dispatch('setPlayerJump', {
+            frameCount: this.player.jump.frameCount - 1
+          })
+          if (this.player.jump.frameCount <= 0) {
+            clearInterval(this.player.jump.timer)
+            this.$store.dispatch('setPlayerJump', { timer: 0 })
+          }
+          const yDiff = (this.player.jump.frameCount < frameCount / 2) ? -3 : 3
+          this.$store.dispatch('movePlayer', { x: 0, y: yDiff })
+        }, 10)
+      })
     }
   }
 }

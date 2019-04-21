@@ -13,6 +13,6 @@ export default {
     state.player.events = []
   },
   SET_PLAYER_JUMP (state, jump) {
-    state.player.jump = jump
+    Object.assign(state.player.jump, jump)
   }
 }
