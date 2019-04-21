@@ -8,7 +8,7 @@ export default {
   computed: {
     selfStyle () {
       return {
-        left: (this.data.position.x - this.player.position.current.x) + 'px',
+        left: `calc(50% + ${(this.data.position.x - this.player.position.current.x)}px)`,
         bottom: this.data.position.y + 'px',
         width: this.data.size.width + 'px',
         height: this.data.size.height + 'px'

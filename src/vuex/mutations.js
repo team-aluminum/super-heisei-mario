@@ -9,36 +9,52 @@ export default {
       y: state.player.position.current.y + y
     }
     const tmpPositionEdges = {
-      leftX: tmpPosition.x,
-      rightX: tmpPosition.x + state.player.size.width,
+      leftX: tmpPosition.x - (state.player.size.width / 2),
+      rightX: tmpPosition.x + (state.player.size.width / 2),
       bottomY: tmpPosition.y,
       topY: tmpPosition.y + state.player.size.height
     }
-    let colliding = false
-    state.things.objects.forEach(object => {
+    const colliding = { right: false, left: false, bottom: false, top: false }
+    const collidingObject = state.things.objects.find(object => {
       const objectPosition = object.data.position
       const objectSize = object.data.size
-      const collidingRight = (
+      colliding.right = (
         objectPosition.x <= tmpPositionEdges.rightX &&
         tmpPositionEdges.rightX <= objectPosition.x + objectSize.width
       )
-      const collidingLeft = (
+      colliding.left = (
         objectPosition.x <= tmpPositionEdges.leftX &&
         tmpPositionEdges.leftX <= objectPosition.x + objectSize.width
       )
-      const collidingBottom = (
+      colliding.bottom = (
         objectPosition.y <= tmpPositionEdges.bottomY &&
         tmpPositionEdges.bottomY <= objectPosition.y + objectSize.height
       )
-      const collidingTop = (
+      colliding.top = (
         objectPosition.y <= tmpPositionEdges.topY &&
         tmpPositionEdges.topY <= objectPosition.y + objectSize.height
       )
-      if ((collidingRight || collidingLeft) && (collidingBottom || collidingTop)) {
-        colliding = true
-      }
+      return (colliding.right || colliding.left) && (colliding.bottom || colliding.top)
     })
-    if (!colliding) {
+    if (collidingObject) {
+      const position = { x: tmpPosition.x, y: tmpPosition.y }
+      const objectPosition = collidingObject.data.position
+      const objectSize = collidingObject.data.size
+      if (colliding.right && !colliding.left) {
+        position.x = objectPosition.x - (state.player.size.width / 2)
+      } else if (!colliding.right && colliding.left) {
+        position.x = objectPosition.x + objectSize.width + (state.player.size.width / 2)
+      }
+      if (colliding.top && !colliding.bottom) {
+        position.y = objectPosition.y
+      } else if (!colliding.top && colliding.bottom) {
+        position.y = objectPosition.y + objectSize.height
+      }
+      Object.assign(
+        state.player.position.current,
+        position
+      )
+    } else {
       Object.assign(
         state.player.position.current,
         tmpPosition

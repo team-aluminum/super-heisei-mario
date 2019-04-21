@@ -1,4 +1,10 @@
 export default {
+  screen: {
+    size: {
+      width: 800,
+      height: 600
+    }
+  },
   player: {
     position: {
       current: {

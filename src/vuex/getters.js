@@ -7,5 +7,8 @@ export default {
   },
   getBackgrounds (state) {
     return state.things.backgrounds
+  },
+  getScreen (state) {
+    return state.screen
   }
 }

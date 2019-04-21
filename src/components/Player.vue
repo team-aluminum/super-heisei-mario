@@ -11,11 +11,13 @@ export default {
       return {
         bottom: this.player.position.current.y + 'px',
         width: this.player.size.width + 'px',
-        height: this.player.size.height + 'px'
+        height: this.player.size.height + 'px',
+        left: `calc(50% - ${this.player.size.width}px / 2)`
       }
     },
     ...mapGetters({
-      player: 'getPlayer'
+      player: 'getPlayer',
+      screen: 'getScreen'
     })
   },
   watch: {
@@ -61,6 +63,4 @@ export default {
   background-color: black
   position: absolute
   z-index: 1
-  left: calc(400px - 30px / 2)
-  bottom: 0
 </style>

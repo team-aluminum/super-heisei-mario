@@ -1,12 +1,12 @@
 <template lang="pug">
 .game
-  .game__screen
+  .game__screen(:style="screenStyle")
     Player(@change="v => player = v")
     .game__things
-      .game__object(v-for="(object, i) in objects" :key="'object:' + i"
-        :is="object.component" :data="object.data" :player="player")
       .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
         :is="background.component" :data="background.data" :player="player")
+      .game__object(v-for="(object, i) in objects" :key="'object:' + i"
+        :is="object.component" :data="object.data" :player="player")
 </template>
 
 <script>
@@ -29,8 +29,15 @@ export default {
     ...mapGetters({
       player: 'getPlayer',
       objects: 'getObjects',
-      backgrounds: 'getBackgrounds'
-    })
+      backgrounds: 'getBackgrounds',
+      screen: 'getScreen'
+    }),
+    screenStyle () {
+      return {
+        width: this.screen.size.width + 'px',
+        height: this.screen.size.height + 'px'
+      }
+    }
   },
   created () {
     document.addEventListener('keydown', this.keydown)
@@ -42,7 +49,7 @@ export default {
     this.$store.dispatch('addBackground', {
       component: 'Mountain',
       data: {
-        position: { x: 500, y: 0 }
+        position: { x: 200, y: 0 }
       }
     })
     this.$store.dispatch('addObject', {
@@ -90,8 +97,6 @@ export default {
   min-width: 800px
   position: relative
   &__screen
-    width: 800px
-    height: 600px
     border: 1px solid black
     position: absolute
     top: 0
