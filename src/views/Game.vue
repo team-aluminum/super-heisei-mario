@@ -1,95 +1,66 @@
 <template lang="pug">
 .game
   .game__screen
-    .game__player(:style="playerStyle")
+    Player(@change="v => player = v")
     .game__objects
-      .game__object(v-for="object in objects" :is="object.component" :data="object.data" :player="player")
+      .game__object(v-for="(object, i) in objects" :is="object.component" :data="object.data" :player="player" :key="i")
 </template>
 
 <script>
+import Player from '@/components/Player'
 import Mountain from '@/components/Mountain'
+import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      inputtingKey: '',
-      player: {
-        position: {
-          x: 0,
-          y: 0
-        },
-        jumping: {
-          timer: 0,
-          frameCount: 0
-        }
-      },
-      objects: []
+      inputtingKey: ''
     }
   },
-  components: { Mountain },
+  components: { Player, Mountain },
   computed: {
-    playerStyle () {
-      return {
-        bottom: this.player.position.y + 'px'
-      }
-    }
+    ...mapGetters({
+      objects: 'getObjects',
+      player: 'getPlayer'
+    })
   },
   created () {
     document.addEventListener('keydown', this.keydown)
     document.addEventListener('keyup', this.keyup)
     setInterval(() => {
       this.handleKey()
-    }, 5)
+    }, 1000 / 60)
 
-    this.objects.push({
+    this.$store.dispatch('addObject', {
       component: 'Mountain',
       data: {
-        position: {x: 100, y: 0}
-      }
-    })
-    this.objects.push({
-      component: 'Mountain',
-      data: {
-        position: {x: 500, y: 0}
+        position: { x: 100, y: 0 }
       }
     })
   },
   methods: {
     keydown (e) {
-      if (e.key !== ' ') {
-        this.inputtingKey = e.key
+      if (e.key === ' ') {
+        this.$store.dispatch('addPlayerEvent', 'jump')
       } else {
-        this.jumping()
+        this.inputtingKey = e.key
       }
     },
     keyup (e) {
-      if (e.key !== ' ') {
-        this.inputtingKey = ''
+      if (e.key === ' ') {
+        this.$store.dispatch('addPlayerEvent', 'jumpDescent')
       } else {
+        this.inputtingKey = ''
       }
     },
     handleKey () {
       switch (this.inputtingKey) {
         case 'ArrowLeft':
-          this.player.position.x -= 2
+          this.$store.dispatch('movePlayer', { x: -7, y: 0 })
           break
         case 'ArrowRight':
-          this.player.position.x += 2
+          this.$store.dispatch('movePlayer', { x: +7, y: 0 })
           break
       }
-    },
-    jumping () {
-      if (this.player.jumping.timer > 0) {
-        return
-      }
-      const frameCount = 90
-      this.player.jumping.frameCount = frameCount
-      this.player.jumping.timer = setInterval(() => {
-        if (--this.player.jumping.frameCount <= 0) {
-          clearInterval(this.player.jumping.timer)
-          this.player.jumping.timer = 0
-        }
-        this.player.position.y += this.player.jumping.frameCount < frameCount / 2 ? -3 : 3
-      }, 10)
     }
   }
 }
@@ -113,12 +84,4 @@ export default {
     bottom: 0
     margin: auto
     overflow: hidden
-  &__player
-    width: 30px
-    height: 30px
-    background-color: black
-    position: absolute
-    z-index: 1
-    left: calc(400px - 30px / 2)
-    bottom: 0
 </style>
