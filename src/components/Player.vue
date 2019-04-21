@@ -9,7 +9,7 @@ export default {
   computed: {
     playerStyle () {
       return {
-        bottom: this.player.position.y + 'px'
+        bottom: this.player.position.current.y + 'px'
       }
     },
     ...mapGetters({

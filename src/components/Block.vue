@@ -1,5 +1,5 @@
 <template lang="pug">
-.mountain(:style="selfStyle")
+.block(:style="selfStyle")
 </template>
 
 <script>
@@ -9,7 +9,9 @@ export default {
     selfStyle () {
       return {
         left: (this.data.position.x - this.player.position.current.x) + 'px',
-        bottom: this.data.position.y + 'px'
+        bottom: this.data.position.y + 'px',
+        width: this.data.size.width + 'px',
+        height: this.data.size.height + 'px'
       }
     }
   }
@@ -17,11 +19,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.mountain
+.block
+  width: 50px
+  height: 50px
   position: absolute
-  width: 300px
-  height: 0
-  border-bottom: 180px solid lightgreen
-  border-left: 240px solid transparent
-  border-right: 240px solid transparent
+  border: 1px solid gray
+  background-color: brown
 </style>

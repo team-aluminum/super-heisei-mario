@@ -2,13 +2,17 @@
 .game
   .game__screen
     Player(@change="v => player = v")
-    .game__objects
-      .game__object(v-for="(object, i) in objects" :is="object.component" :data="object.data" :player="player" :key="i")
+    .game__things
+      .game__object(v-for="(object, i) in objects" :key="i"
+        :is="object.component" :data="object.data" :player="player")
+      .game__background(v-for="(background, i) in backgrounds"
+        :is="background.component" :data="background.data" :player="player")
 </template>
 
 <script>
 import Player from '@/components/Player'
 import Mountain from '@/components/Mountain'
+import Block from '@/components/Block'
 import { mapGetters } from 'vuex'
 export default {
   data () {
@@ -16,11 +20,16 @@ export default {
       inputtingKey: ''
     }
   },
-  components: { Player, Mountain },
+  components: {
+    Player,
+    Mountain,
+    Block
+  },
   computed: {
     ...mapGetters({
+      player: 'getPlayer',
       objects: 'getObjects',
-      player: 'getPlayer'
+      backgrounds: 'getBackgrounds'
     })
   },
   created () {
@@ -30,10 +39,17 @@ export default {
       this.handleKey()
     }, 1000 / 60)
 
-    this.$store.dispatch('addObject', {
+    this.$store.dispatch('addBackground', {
       component: 'Mountain',
       data: {
-        position: { x: 100, y: 0 }
+        position: { x: 500, y: 0 }
+      }
+    })
+    this.$store.dispatch('addObject', {
+      component: 'Block',
+      data: {
+        position: { x: 300, y: 0 },
+        size: { width: 30, height: 30 }
       }
     })
   },
@@ -83,5 +99,5 @@ export default {
     right: 0
     bottom: 0
     margin: auto
-    overflow: hidden
+    // overflow: hidden
 </style>

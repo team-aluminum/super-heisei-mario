@@ -1,8 +1,14 @@
 export default {
   player: {
     position: {
-      y: 0,
-      x: 0
+      current: {
+        y: 0,
+        x: 0
+      },
+      previous: {
+        y: 0,
+        x: 0
+      }
     },
     jump: {
       timer: 0,
@@ -11,5 +17,8 @@ export default {
     },
     events: []
   },
-  objects: []
+  things: {
+    objects: [],
+    backgrounds: []
+  }
 }

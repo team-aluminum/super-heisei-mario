@@ -1,7 +1,4 @@
 export default {
-  addObject ({ commit }, object) {
-    commit('ADD_OBJECT', object)
-  },
   movePlayer ({ commit }, { x, y }) {
     commit('MOVE_PLAYER', { x, y })
   },
@@ -13,5 +10,12 @@ export default {
   },
   setPlayerJump ({ commit }, jump) {
     commit('SET_PLAYER_JUMP', jump)
+  },
+
+  addObject ({ commit }, object) {
+    commit('ADD_OBJECT', object)
+  },
+  addBackground ({ commit }, background) {
+    commit('ADD_BACKGROUND', background)
   }
 }

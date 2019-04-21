@@ -1,8 +1,11 @@
 export default {
-  getObjects (state) {
-    return state.objects
-  },
   getPlayer (state) {
     return state.player
+  },
+  getObjects (state) {
+    return state.things.objects
+  },
+  getBackgrounds (state) {
+    return state.things.backgrounds
   }
 }
