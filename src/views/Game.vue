@@ -1,7 +1,7 @@
 <template lang="pug">
 .game
   .game__screen(:style="screenStyle")
-    Player(@change="v => player = v")
+    Player
     .game__things
       .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
         :is="background.component" :data="background.data" :player="player")
