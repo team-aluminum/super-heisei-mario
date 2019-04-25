@@ -54,10 +54,12 @@ export default {
         supposedPosition.x = objectEdgesPosition.leftX - (playerSize.width / 2) - 1
       }
       if (currentSidesRelativeToCollidingObject.bottom) {
-        supposedPosition.y = objectEdgesPosition.bottomY - 1
-        state.player.events.push('land')
+        console.log('bottom')
+        supposedPosition.y = objectEdgesPosition.bottomY - playerSize.height - 1
+        state.player.events.push('stopJump')
       } else if (currentSidesRelativeToCollidingObject.top) {
         supposedPosition.y = objectEdgesPosition.topY + 1
+        state.player.events.push('land')
       }
     }
 

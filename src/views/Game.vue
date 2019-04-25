@@ -53,10 +53,15 @@ export default {
     })
     this.$store.dispatch('addObject', {
       component: 'Block',
-      data: {
-        position: { x: 300, y: 0 },
-        size: { width: 30, height: 30 }
-      }
+      data: { position: { x: 300, y: 0 }, size: { width: 30, height: 30 } }
+    })
+    this.$store.dispatch('addObject', {
+      component: 'Block',
+      data: { position: { x: 330, y: 30 }, size: { width: 30, height: 30 } }
+    })
+    this.$store.dispatch('addObject', {
+      component: 'Block',
+      data: { position: { x: 390, y: 60 }, size: { width: 30, height: 30 } }
     })
   },
   methods: {
