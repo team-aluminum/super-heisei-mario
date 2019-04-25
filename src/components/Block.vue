@@ -23,6 +23,5 @@ export default {
   width: 50px
   height: 50px
   position: absolute
-  border: 1px solid gray
   background-color: brown
 </style>

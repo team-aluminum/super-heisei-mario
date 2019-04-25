@@ -1,66 +1,69 @@
 export default {
   MOVE_PLAYER (state, { x, y }) {
-    Object.assign(
-      state.player.position.previous,
-      state.player.position.current
-    )
-    const tmpPosition = {
-      x: state.player.position.current.x + x,
-      y: state.player.position.current.y + y
+    const currentPosition = Object.assign({}, state.player.position.current)
+    const playerSize = Object.assign({}, state.player.size)
+    const supposedPosition = { x: currentPosition.x + x, y: currentPosition.y + y }
+    const currentEdgesPosition = {
+      leftX: currentPosition.x - (playerSize.width / 2),
+      rightX: currentPosition.x + (playerSize.width / 2),
+      bottomY: currentPosition.y,
+      topY: currentPosition.y + playerSize.height
     }
-    const tmpPositionEdges = {
-      leftX: tmpPosition.x - (state.player.size.width / 2),
-      rightX: tmpPosition.x + (state.player.size.width / 2),
-      bottomY: tmpPosition.y,
-      topY: tmpPosition.y + state.player.size.height
-    }
-    const colliding = { right: false, left: false, bottom: false, top: false }
+    let currentSidesRelativeToCollidingObject = { right: false, left: false, bottom: false, top: false }
+
     const collidingObject = state.things.objects.find(object => {
       const objectPosition = object.data.position
       const objectSize = object.data.size
-      colliding.right = (
-        objectPosition.x <= tmpPositionEdges.rightX &&
-        tmpPositionEdges.rightX <= objectPosition.x + objectSize.width
+      const objectEdgesPosition = {
+        leftX: objectPosition.x,
+        rightX: objectPosition.x + objectSize.width,
+        bottomY: objectPosition.y,
+        topY: objectPosition.y + objectSize.height
+      }
+
+      const horizontalDistance = Math.abs(supposedPosition.x - (objectPosition.x + objectSize.width / 2))
+      const horizontalCollisionDistance = (playerSize.width + objectSize.width) / 2
+      const verticalDistance = Math.abs(
+        (supposedPosition.y + playerSize.height / 2) - (objectPosition.y + objectSize.height / 2)
       )
-      colliding.left = (
-        objectPosition.x <= tmpPositionEdges.leftX &&
-        tmpPositionEdges.leftX <= objectPosition.x + objectSize.width
-      )
-      colliding.bottom = (
-        objectPosition.y <= tmpPositionEdges.bottomY &&
-        tmpPositionEdges.bottomY <= objectPosition.y + objectSize.height
-      )
-      colliding.top = (
-        objectPosition.y <= tmpPositionEdges.topY &&
-        tmpPositionEdges.topY <= objectPosition.y + objectSize.height
-      )
-      return (colliding.right || colliding.left) && (colliding.bottom || colliding.top)
+      const verticalCollisionDistance = (playerSize.height + objectSize.height) / 2
+      if (horizontalDistance <= horizontalCollisionDistance && verticalDistance <= verticalCollisionDistance) {
+        currentSidesRelativeToCollidingObject = {
+          right: objectEdgesPosition.rightX < currentEdgesPosition.leftX,
+          left: currentEdgesPosition.rightX < objectEdgesPosition.leftX,
+          bottom: currentEdgesPosition.topY < objectEdgesPosition.bottomY,
+          top: objectEdgesPosition.topY < currentEdgesPosition.bottomY
+        }
+        return true
+      }
+      return false
     })
     if (collidingObject) {
-      const position = { x: tmpPosition.x, y: tmpPosition.y }
       const objectPosition = collidingObject.data.position
       const objectSize = collidingObject.data.size
-      if (colliding.right && !colliding.left) {
-        position.x = objectPosition.x - (state.player.size.width / 2)
-      } else if (!colliding.right && colliding.left) {
-        position.x = objectPosition.x + objectSize.width + (state.player.size.width / 2)
+      const objectEdgesPosition = {
+        leftX: objectPosition.x,
+        rightX: objectPosition.x + objectSize.width,
+        bottomY: objectPosition.y,
+        topY: objectPosition.y + objectSize.height
       }
-      if (colliding.top && !colliding.bottom) {
-        position.y = objectPosition.y
-      } else if (!colliding.top && colliding.bottom) {
-        position.y = objectPosition.y + objectSize.height
+
+      if (currentSidesRelativeToCollidingObject.right) {
+        supposedPosition.x = objectEdgesPosition.rightX + (playerSize.width / 2) + 1
+      } else if (currentSidesRelativeToCollidingObject.left) {
+        supposedPosition.x = objectEdgesPosition.leftX - (playerSize.width / 2) - 1
       }
-      Object.assign(
-        state.player.position.current,
-        position
-      )
-    } else {
-      Object.assign(
-        state.player.position.current,
-        tmpPosition
-      )
+      if (currentSidesRelativeToCollidingObject.bottom) {
+        supposedPosition.y = objectEdgesPosition.bottomY - 1
+      } else if (currentSidesRelativeToCollidingObject.top) {
+        supposedPosition.y = objectEdgesPosition.topY + 1
+      }
     }
+
+    Object.assign(state.player.position.previous, currentPosition)
+    Object.assign(state.player.position.current, supposedPosition)
   },
+
   ADD_PLAYER_EVENT (state, eventName) {
     state.player.events.push(eventName)
   },
