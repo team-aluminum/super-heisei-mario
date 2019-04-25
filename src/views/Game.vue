@@ -91,7 +91,11 @@ export default {
     },
     draw () {
       this.handleKey()
-      this.$store.dispatch('movePlayer', { x: 0, y: -4 })
+      if (this.player.position.current.y > 0) {
+        this.$store.dispatch('movePlayer', { x: 0, y: -4 })
+      } else if (!this.player.jump.jumpable) {
+        this.$store.dispatch('setPlayerJump', { jumpable: true })
+      }
     }
   }
 }
