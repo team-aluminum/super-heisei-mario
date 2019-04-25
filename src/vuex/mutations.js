@@ -27,12 +27,12 @@ export default {
         (supposedPosition.y + playerSize.height / 2) - (objectPosition.y + objectSize.height / 2)
       )
       const verticalCollisionDistance = (playerSize.height + objectSize.height) / 2
-      if (horizontalDistance <= horizontalCollisionDistance && verticalDistance <= verticalCollisionDistance) {
+      if (horizontalDistance < horizontalCollisionDistance && verticalDistance < verticalCollisionDistance) {
         currentSidesRelativeToCollidingObject = {
-          right: objectEdgesPosition.rightX < currentEdgesPosition.leftX,
-          left: currentEdgesPosition.rightX < objectEdgesPosition.leftX,
-          bottom: currentEdgesPosition.topY < objectEdgesPosition.bottomY,
-          top: objectEdgesPosition.topY < currentEdgesPosition.bottomY
+          right: objectEdgesPosition.rightX <= currentEdgesPosition.leftX,
+          left: currentEdgesPosition.rightX <= objectEdgesPosition.leftX,
+          bottom: currentEdgesPosition.topY <= objectEdgesPosition.bottomY,
+          top: objectEdgesPosition.topY <= currentEdgesPosition.bottomY
         }
         return true
       }
@@ -49,16 +49,15 @@ export default {
       }
 
       if (currentSidesRelativeToCollidingObject.right) {
-        supposedPosition.x = objectEdgesPosition.rightX + (playerSize.width / 2) + 1
+        supposedPosition.x = objectEdgesPosition.rightX + (playerSize.width / 2)
       } else if (currentSidesRelativeToCollidingObject.left) {
-        supposedPosition.x = objectEdgesPosition.leftX - (playerSize.width / 2) - 1
+        supposedPosition.x = objectEdgesPosition.leftX - (playerSize.width / 2)
       }
       if (currentSidesRelativeToCollidingObject.bottom) {
-        console.log('bottom')
-        supposedPosition.y = objectEdgesPosition.bottomY - playerSize.height - 1
+        supposedPosition.y = objectEdgesPosition.bottomY - playerSize.height
         state.player.events.push('stopJump')
       } else if (currentSidesRelativeToCollidingObject.top) {
-        supposedPosition.y = objectEdgesPosition.topY + 1
+        supposedPosition.y = objectEdgesPosition.topY
         state.player.events.push('land')
       }
     }
