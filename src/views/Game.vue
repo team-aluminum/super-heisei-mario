@@ -17,7 +17,8 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      inputtingKey: ''
+      inputtingKey: '',
+      drawTimer: 0
     }
   },
   components: {
@@ -42,9 +43,7 @@ export default {
   created () {
     document.addEventListener('keydown', this.keydown)
     document.addEventListener('keyup', this.keyup)
-    setInterval(() => {
-      this.handleKey()
-    }, 1000 / 60)
+    this.drawTimer = setInterval(() => { this.draw() }, 1000 / 60)
 
     this.$store.dispatch('addBackground', {
       component: 'Mountain',
@@ -84,6 +83,10 @@ export default {
           this.$store.dispatch('movePlayer', { x: +7, y: 0 })
           break
       }
+    },
+    draw () {
+      this.handleKey()
+      this.$store.dispatch('movePlayer', { x: 0, y: -3 })
     }
   }
 }

@@ -60,6 +60,10 @@ export default {
       }
     }
 
+    if (supposedPosition.y < 0) {
+      supposedPosition.y = 0
+    }
+
     Object.assign(state.player.position.previous, currentPosition)
     Object.assign(state.player.position.current, supposedPosition)
   },

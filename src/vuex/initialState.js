@@ -23,7 +23,7 @@ export default {
     jump: {
       timer: 0,
       frameCount: 0,
-      descenting: false
+      jumpable: true
     },
     events: []
   },

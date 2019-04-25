@@ -24,6 +24,11 @@ export default {
     'player.events' () {
       if (this.player.events.indexOf('jump') >= 0) {
         this.jump()
+      }
+      if (this.player.events.indexOf('jumpDescent') >= 0) {
+        this.stopJump()
+      }
+      if (this.player.events.length > 0) {
         this.$store.dispatch('clearPlayerEvent')
       }
     }
@@ -32,11 +37,15 @@ export default {
     this.$store.dispatch('setPlayerSize', { width: 30, height: 30 })
   },
   methods: {
+    stopJump () {
+      clearInterval(this.player.jump.timer)
+      this.$store.dispatch('setPlayerJump', { timer: 0 })
+    },
     jump () {
       if (this.player.jump.timer > 0) {
         return
       }
-      const frameCount = 90
+      const frameCount = 40
       this.$store.dispatch('setPlayerJump', {
         frameCount,
         timer: setInterval(() => {
@@ -44,12 +53,10 @@ export default {
             frameCount: this.player.jump.frameCount - 1
           })
           if (this.player.jump.frameCount <= 0) {
-            clearInterval(this.player.jump.timer)
-            this.$store.dispatch('setPlayerJump', { timer: 0 })
+            this.stopJump()
           }
-          const yDiff = (this.player.jump.frameCount < frameCount / 2) ? -3 : 3
-          this.$store.dispatch('movePlayer', { x: 0, y: yDiff })
-        }, 10)
+          this.$store.dispatch('movePlayer', { x: 0, y: 6 })
+        }, 1000 / 60)
       })
     }
   }
