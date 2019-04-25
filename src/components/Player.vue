@@ -25,8 +25,11 @@ export default {
       if (this.player.events.indexOf('jump') >= 0) {
         this.jump()
       }
-      if (this.player.events.indexOf('jumpDescent') >= 0) {
+      if (this.player.events.indexOf('stopJump') >= 0) {
         this.stopJump()
+      }
+      if (this.player.events.indexOf('land') >= 0) {
+        this.land()
       }
       if (this.player.events.length > 0) {
         this.$store.dispatch('clearPlayerEvent')
@@ -37,15 +40,15 @@ export default {
     this.$store.dispatch('setPlayerSize', { width: 30, height: 30 })
   },
   methods: {
-    stopJump () {
-      clearInterval(this.player.jump.timer)
-      this.$store.dispatch('setPlayerJump', { timer: 0 })
-    },
     jump () {
+      if (!this.player.jump.jumpable) {
+        return
+      }
+      this.$store.dispatch('setPlayerJump', { jumpable: false })
       if (this.player.jump.timer > 0) {
         return
       }
-      const frameCount = 40
+      const frameCount = 30
       this.$store.dispatch('setPlayerJump', {
         frameCount,
         timer: setInterval(() => {
@@ -55,9 +58,16 @@ export default {
           if (this.player.jump.frameCount <= 0) {
             this.stopJump()
           }
-          this.$store.dispatch('movePlayer', { x: 0, y: 6 })
+          this.$store.dispatch('movePlayer', { x: 0, y: 8 })
         }, 1000 / 60)
       })
+    },
+    stopJump () {
+      clearInterval(this.player.jump.timer)
+      this.$store.dispatch('setPlayerJump', { timer: 0 })
+    },
+    land () {
+      this.$store.dispatch('setPlayerJump', { jumpable: true })
     }
   }
 }

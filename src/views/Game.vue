@@ -69,7 +69,7 @@ export default {
     },
     keyup (e) {
       if (e.key === ' ') {
-        this.$store.dispatch('addPlayerEvent', 'jumpDescent')
+        this.$store.dispatch('addPlayerEvent', 'stopJump')
       } else {
         this.inputtingKey = ''
       }
@@ -86,7 +86,7 @@ export default {
     },
     draw () {
       this.handleKey()
-      this.$store.dispatch('movePlayer', { x: 0, y: -3 })
+      this.$store.dispatch('movePlayer', { x: 0, y: -4 })
     }
   }
 }

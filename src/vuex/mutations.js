@@ -55,6 +55,7 @@ export default {
       }
       if (currentSidesRelativeToCollidingObject.bottom) {
         supposedPosition.y = objectEdgesPosition.bottomY - 1
+        state.player.events.push('land')
       } else if (currentSidesRelativeToCollidingObject.top) {
         supposedPosition.y = objectEdgesPosition.topY + 1
       }
@@ -62,6 +63,7 @@ export default {
 
     if (supposedPosition.y < 0) {
       supposedPosition.y = 0
+      state.player.events.push('land')
     }
 
     Object.assign(state.player.position.previous, currentPosition)
