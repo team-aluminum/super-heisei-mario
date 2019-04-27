@@ -10,10 +10,8 @@
 </template>
 
 <script>
-import Player from '@/components/Player'
-import Mountain from '@/components/Mountain'
-import Block from '@/components/Block'
 import { mapGetters } from 'vuex'
+import constants from '@/constants'
 export default {
   data () {
     return {
@@ -22,9 +20,9 @@ export default {
     }
   },
   components: {
-    Player,
-    Mountain,
-    Block
+    Player: () => import('@/components/Player'),
+    Mountain: () => import('@/components/Mountain'),
+    Block: () => import('@/components/Block')
   },
   computed: {
     ...mapGetters({
@@ -43,7 +41,7 @@ export default {
   created () {
     document.addEventListener('keydown', this.keydown)
     document.addEventListener('keyup', this.keyup)
-    this.drawTimer = setInterval(() => { this.draw() }, 1000 / 60)
+    this.drawTimer = setInterval(() => { this.draw() }, constants.FRAME_RATE)
 
     this.$store.dispatch('addBackground', {
       component: 'Mountain',
@@ -53,15 +51,24 @@ export default {
     })
     this.$store.dispatch('addObject', {
       component: 'Block',
-      data: { position: { x: 300, y: 0 }, size: { width: 30, height: 30 } }
+      data: {
+        position: { x: 300, y: 0 },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH }
+      }
     })
     this.$store.dispatch('addObject', {
       component: 'Block',
-      data: { position: { x: 330, y: 30 }, size: { width: 30, height: 30 } }
+      data: {
+        position: { x: 330, y: 30 },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH }
+      }
     })
     this.$store.dispatch('addObject', {
       component: 'Block',
-      data: { position: { x: 390, y: 60 }, size: { width: 30, height: 30 } }
+      data: {
+        position: { x: 390, y: 60 },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH }
+      }
     })
   },
   methods: {

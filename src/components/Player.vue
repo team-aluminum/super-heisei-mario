@@ -4,6 +4,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import constants from '@/constants'
 export default {
   props: ['events'],
   computed: {
@@ -37,7 +38,9 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('setPlayerSize', { width: 30, height: 30 })
+    this.$store.dispatch('setPlayerSize', {
+      width: constants.GRID_LENGTH, height: constants.GRID_LENGTH
+    })
   },
   methods: {
     jump () {
@@ -59,7 +62,7 @@ export default {
             this.stopJump()
           }
           this.$store.dispatch('movePlayer', { x: 0, y: 8 })
-        }, 1000 / 60)
+        }, constants.FRAME_RATE)
       })
     },
     stopJump () {
