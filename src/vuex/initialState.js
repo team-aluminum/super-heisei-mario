@@ -9,11 +9,11 @@ export default {
     position: {
       current: {
         y: 0,
-        x: 0
+        x: 30
       },
       previous: {
         y: 0,
-        x: 0
+        x: 30
       }
     },
     size: {
