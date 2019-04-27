@@ -3,12 +3,23 @@ export default {
     return state.player
   },
   getObjects (state) {
-    return state.things.objects
+    return [].concat(
+      state.things.previousMap.objects,
+      state.things.currentMap.objects,
+      state.things.nextMap.objects
+    )
   },
   getBackgrounds (state) {
-    return state.things.backgrounds
+    return [].concat(
+      state.things.previousMap.backgrounds,
+      state.things.currentMap.backgrounds,
+      state.things.nextMap.backgrounds
+    )
   },
   getScreen (state) {
     return state.screen
+  },
+  getMap (state) {
+    return state.map
   }
 }

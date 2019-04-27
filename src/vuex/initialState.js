@@ -28,7 +28,23 @@ export default {
     events: []
   },
   things: {
-    objects: [],
-    backgrounds: []
+    previousMap: {
+      objects: [],
+      backgrounds: []
+    },
+    currentMap: {
+      objects: [],
+      backgrounds: []
+    },
+    nextMap: {
+      objects: [],
+      backgrounds: []
+    }
+  },
+  map: {
+    previous: null,
+    current: 'map1',
+    next: 'map2',
+    leftEdgesPosition: 0
   }
 }

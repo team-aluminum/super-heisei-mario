@@ -11,7 +11,7 @@ export default {
     }
     let currentSidesRelativeToCollidingObject = { right: false, left: false, bottom: false, top: false }
 
-    const collidingObject = state.things.objects.find(object => {
+    const collidingObject = state.things.currentMap.objects.find(object => {
       const objectPosition = object.data.position
       const objectSize = object.data.size
       const objectEdgesPosition = {
@@ -87,10 +87,22 @@ export default {
     Object.assign(state.player.jump, jump)
   },
 
-  ADD_OBJECT (state, object) {
-    state.things.objects.push(object)
+  ADD_OBJECT (state, { object, offset = 'current' }) {
+    if (offset === 'current') {
+      state.things.currentMap.objects.push(object)
+    } else if (offset === 'previous') {
+      state.things.previousMap.objects.push(object)
+    } else if (offset === 'next') {
+      state.things.nextMap.objects.push(object)
+    }
   },
-  ADD_BACKGROUND (state, background) {
-    state.things.backgrounds.push(background)
+  ADD_BACKGROUND (state, background, offset = 'current') {
+    if (offset === 'current') {
+      state.things.currentMap.backgrounds.push(background)
+    } else if (offset === 'previous') {
+      state.things.previousMap.backgrounds.push(background)
+    } else if (offset === 'next') {
+      state.things.nextMap.backgrounds.push(background)
+    }
   }
 }

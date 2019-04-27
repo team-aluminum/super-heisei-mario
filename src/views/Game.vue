@@ -12,6 +12,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import constants from '@/constants'
+import mapHandler from '@/logics/mapHandler'
 export default {
   data () {
     return {
@@ -29,7 +30,8 @@ export default {
       player: 'getPlayer',
       objects: 'getObjects',
       backgrounds: 'getBackgrounds',
-      screen: 'getScreen'
+      screen: 'getScreen',
+      map: 'getMap'
     }),
     screenStyle () {
       return {
@@ -42,34 +44,8 @@ export default {
     document.addEventListener('keydown', this.keydown)
     document.addEventListener('keyup', this.keyup)
     this.drawTimer = setInterval(() => { this.draw() }, constants.FRAME_RATE)
-
-    this.$store.dispatch('addBackground', {
-      component: 'Mountain',
-      data: {
-        position: { x: 200, y: 0 }
-      }
-    })
-    this.$store.dispatch('addObject', {
-      component: 'Block',
-      data: {
-        position: { x: 300, y: 0 },
-        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH }
-      }
-    })
-    this.$store.dispatch('addObject', {
-      component: 'Block',
-      data: {
-        position: { x: 330, y: 30 },
-        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH }
-      }
-    })
-    this.$store.dispatch('addObject', {
-      component: 'Block',
-      data: {
-        position: { x: 390, y: 60 },
-        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH }
-      }
-    })
+    mapHandler(this.map.current, 'current')
+    mapHandler(this.map.next, 'next')
   },
   methods: {
     keydown (e) {
