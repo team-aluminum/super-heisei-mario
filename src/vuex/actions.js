@@ -20,5 +20,15 @@ export default {
   },
   addBackground ({ commit }, background) {
     commit('ADD_BACKGROUND', background)
+  },
+
+  setMap ({ commit }, map) {
+    commit('SET_MAP', map)
+  },
+  moveToNextMap ({ commit }) {
+    commit('MOVE_TO_NEXT_MAP')
+  },
+  moveToPreviousMap ({ commit }) {
+    commit('MOVE_TO_PREVIOUS_MAP')
   }
 }

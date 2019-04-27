@@ -42,9 +42,13 @@ export default {
     }
   },
   map: {
-    previous: null,
-    current: 'map1',
-    next: 'map2',
-    leftEdgesPosition: 0
+    previousName: null,
+    currentName: null,
+    nextName: null,
+    edgesPositions: {
+      previous: { left: 0 },
+      current: { left: 0 },
+      next: { left: 0 }
+    }
   }
 }

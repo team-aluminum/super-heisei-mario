@@ -1,15 +1,15 @@
 import store from '@/vuex/store'
 import constants from '@/constants'
-export default (mapName, offset) => {
-  import(`@/data/maps/${mapName}`).then(_mapData => {
-    const mapData = _mapData.default
-    const chips = mapData.chips.split('\n')
-      .filter(row => row)
-      .map(row => {
-        return row.split(' ').map(col => {
-          return mapData.chipMeta[col].empty ? null : col
-        })
-      })
+
+export default async (mapName, offset, objectAdditional) => {
+  const mapData = (await import(`@/data/maps/${mapName}`)).default
+  const chips = mapData.chips.split('\n')
+    .filter(row => row)
+    .map(row => {
+      return row.split(' ').map(col => mapData.chipMeta[col].empty ? null : col)
+    })
+  const mapHorizontalGridCount = Math.max.apply(null, chips.map(chipsRow => chipsRow.length))
+  if (objectAdditional) {
     chips.reverse().forEach((chipsRow, gy) => {
       chipsRow.forEach((chip, gx) => {
         if (chip === null) {
@@ -21,11 +21,17 @@ export default (mapName, offset) => {
             component: mapData.chipMeta[chip].componentName,
             data: {
               position: { x: gx * constants.GRID_LENGTH, y: gy * constants.GRID_LENGTH },
-              size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH }
+              size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+              styles: mapData.chipMeta[chip].styles
             }
           }
         })
       })
     })
-  })
+  }
+  return {
+    mapWidth: mapHorizontalGridCount * constants.GRID_LENGTH,
+    previousName: mapData.previousMapName,
+    nextName: mapData.nextMapName
+  }
 }

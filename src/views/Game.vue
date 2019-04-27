@@ -4,9 +4,16 @@
     Player
     .game__things
       .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
-        :is="background.component" :data="background.data" :player="player")
-      .game__object(v-for="(object, i) in objects" :key="'object:' + i"
-        :is="object.component" :data="object.data" :player="player")
+        :is="background.component" :data="background.data")
+      .game__object.-previous(v-for="(object, i) in objects.previousMap"
+        :key="'object:previous:' + i" :is="object.component"
+        :data="object.data" :offsetX="map.edgesPositions.previous.left")
+      .game__object.-current(v-for="(object, i) in objects.currentMap"
+        :key="'object:current:' + i" :is="object.component"
+        :data="object.data" :offsetX="map.edgesPositions.current.left")
+      .game__object.-next(v-for="(object, i) in objects.nextMap"
+        :key="'object:next:' + i" :is="object.component"
+        :data="object.data" :offsetX="map.edgesPositions.next.left")
 </template>
 
 <script>
@@ -40,12 +47,21 @@ export default {
       }
     }
   },
-  created () {
+  async created () {
     document.addEventListener('keydown', this.keydown)
     document.addEventListener('keyup', this.keyup)
+    this.$store.dispatch('setMap', { currentName: 'map1' })
+    await mapHandler(this.map.currentName, 'current', true).then(data => {
+      this.$store.dispatch('setMap', {
+        nextName: data.nextName,
+        edgesPositions: Object.assign(
+          this.map.edgesPositions,
+          { next: { left: data.mapWidth } }
+        )
+      })
+    })
+    mapHandler(this.map.nextName, 'next', true)
     this.drawTimer = setInterval(() => { this.draw() }, constants.FRAME_RATE)
-    mapHandler(this.map.current, 'current')
-    mapHandler(this.map.next, 'next')
   },
   methods: {
     keydown (e) {
@@ -78,6 +94,12 @@ export default {
         this.$store.dispatch('movePlayer', { x: 0, y: -4 })
       } else if (!this.player.jump.jumpable) {
         this.$store.dispatch('setPlayerJump', { jumpable: true })
+      }
+
+      if (this.player.position.current.x < this.map.edgesPositions.current.left) {
+        this.$store.dispatch('moveToPreviousMap')
+      } else if (this.map.edgesPositions.next.left < this.player.position.current.x) {
+        this.$store.dispatch('moveToNextMap')
       }
     }
   }

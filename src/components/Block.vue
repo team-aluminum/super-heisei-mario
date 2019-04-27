@@ -3,17 +3,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  props: ['data', 'player'],
+  props: ['data', 'offsetX'],
   computed: {
     selfStyle () {
-      return {
-        left: `calc(50% + ${(this.data.position.x - this.player.position.current.x)}px)`,
+      const left = this.data.position.x + this.offsetX - this.player.position.current.x
+      return Object.assign({
+        left: `calc(50% + ${left}px)`,
         bottom: this.data.position.y + 'px',
         width: this.data.size.width + 'px',
         height: this.data.size.height + 'px'
-      }
-    }
+      }, this.data.styles)
+    },
+    ...mapGetters({
+      player: 'getPlayer'
+    })
   }
 }
 </script>
@@ -23,5 +28,5 @@ export default {
   width: 50px
   height: 50px
   position: absolute
-  background-color: brown
+  background-color: gray
 </style>

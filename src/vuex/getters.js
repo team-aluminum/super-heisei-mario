@@ -3,11 +3,11 @@ export default {
     return state.player
   },
   getObjects (state) {
-    return [].concat(
-      state.things.previousMap.objects,
-      state.things.currentMap.objects,
-      state.things.nextMap.objects
-    )
+    return {
+      previousMap: state.things.previousMap.objects,
+      currentMap: state.things.currentMap.objects,
+      nextMap: state.things.nextMap.objects
+    }
   },
   getBackgrounds (state) {
     return [].concat(
