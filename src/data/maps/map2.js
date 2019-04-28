@@ -3,24 +3,33 @@ export default {
   nextMapName: 'map3',
   floor: 'floor1',
   chips: `
-em em em em em em em em em em em em em em em em em em em em
-em em em em em em em em em em em em em em em em em em em em
-em em em em em em em em bl bl em em em em em em em em em em
-em em em em em em em em em em em em em em em em em em em em
-em em em em em em em bl bl bl bl bl em em em em em em em em
-em em em em em em em em em em em em em em em em em em em em
-em em em em em em em em em em em em em em em em em em em em
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp blk blk emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp blk blk blk blk blk emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+f16 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem emp emp f02 fem
 `,
   chipMeta: {
-    em: {
-      empty: true
-    },
-    bl: {
+    emp: { empty: true },
+    fem: { empty: true },
+    blk: {
       empty: false,
       componentName: 'Block',
       styles: {
         backgroundColor: 'red'
       }
+    },
+    f16: {
+      empty: false,
+      componentName: 'Floor',
+      horizontalGridCount: 16
+    },
+    f02: {
+      empty: false,
+      componentName: 'Floor',
+      horizontalGridCount: 5
     }
   }
 }

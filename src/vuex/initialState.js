@@ -8,11 +8,11 @@ export default {
   player: {
     position: {
       current: {
-        y: 0,
+        y: 30,
         x: 30
       },
       previous: {
-        y: 0,
+        y: 30,
         x: 30
       }
     },

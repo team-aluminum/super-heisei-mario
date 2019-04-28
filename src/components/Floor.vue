@@ -1,5 +1,5 @@
 <template lang="pug">
-.block(:style="selfStyle")
+.floor(:style="selfStyle")
 </template>
 
 <script>
@@ -23,8 +23,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.block
+<style lang="stylus">
+.floor
   position: absolute
-  background-color: gray
+  background-color: green
 </style>

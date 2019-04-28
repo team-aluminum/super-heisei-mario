@@ -30,7 +30,8 @@ export default {
   components: {
     Player: () => import('@/components/Player'),
     Mountain: () => import('@/components/Mountain'),
-    Block: () => import('@/components/Block')
+    Block: () => import('@/components/Block'),
+    Floor: () => import('@/components/Floor')
   },
   computed: {
     ...mapGetters({
@@ -90,11 +91,7 @@ export default {
     },
     draw () {
       this.handleKey()
-      if (this.player.position.current.y > 0) {
-        this.$store.dispatch('movePlayer', { x: 0, y: -4 })
-      } else if (!this.player.jump.jumpable) {
-        this.$store.dispatch('setPlayerJump', { jumpable: true })
-      }
+      this.$store.dispatch('movePlayer', { x: 0, y: -4 })
 
       if (this.player.position.current.x < this.map.edgesPositions.current.left) {
         this.$store.dispatch('moveToPreviousMap')
