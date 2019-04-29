@@ -5,11 +5,19 @@ export default {
   chips: `
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp emp emp emp blk blk emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp blk blk blk blk blk emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-f05 fem fem fem fem emp emp f13 fem fem fem fem fem fem fem fem fem fem fem fem
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp qbc emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
+f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
 `,
   chipMeta: {
     emp: { empty: true },
@@ -22,19 +30,18 @@ f05 fem fem fem fem emp emp f13 fem fem fem fem fem fem fem fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     },
-    f13: {
+    bqc: {
       empty: false,
-      componentName: 'Floor',
-      horizontalGridCount: 13,
+      componentName: 'QuestionBlockCoin',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage1/floor.png')})`,
+        backgroundImage: ``,
         backgroundSize: '30px 30px'
       }
     },
-    f05: {
+    f19: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 5,
+      horizontalGridCount: 19,
       styles: {
         backgroundImage: `url(${require('@/assets/stage1/floor.png')})`,
         backgroundSize: '30px 30px'
