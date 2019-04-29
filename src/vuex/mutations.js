@@ -82,8 +82,28 @@ export default {
   },
 
   ADD_CREATURE (state, creature) {
+    const maxId = Math.max.apply(null, [0].concat(
+      state.creatures.map(c => c.id)
+    ))
+    Object.assign(creature, { id: maxId + 1 })
     state.creatures.push(creature)
   },
+  MOVE_CREATURE (state, { creatureId, x, y }) {
+    const creatureIndex = state.creatures.findIndex(c => c.id === creatureId)
+    const creature = state.creatures.find(c => c.id === creatureId)
+    if (creatureIndex < 0) {
+      return
+    }
+    state.creatures.splice(creatureIndex, 1, Object.assign(creature,
+      Object.assign(creature.data, {
+        position: {
+          x: creature.data.position.x + x,
+          y: creature.data.position.y + y
+        }
+      })
+    ))
+  },
+
   SET_MAP (state, map) {
     Object.assign(state.map, map)
   },

@@ -6,10 +6,10 @@
 import { mapGetters } from 'vuex'
 import constants from '@/constants'
 export default {
-  props: ['data'],
+  props: ['data', 'creatureId'],
   computed: {
     selfStyle () {
-      const left = this.data.position.x - this.player.position.current.x - this.position.x
+      const left = this.data.position.x - this.player.position.current.x
       return Object.assign({
         width: this.data.size.width + 'px',
         height: this.data.size.height + 'px',
@@ -23,10 +23,6 @@ export default {
   },
   data () {
     return {
-      position: {
-        x: 0,
-        y: 0
-      },
       timer: 0
     }
   },
@@ -36,7 +32,11 @@ export default {
   },
   created () {
     this.timer = setInterval(() => {
-      this.position.x += 0.2
+      this.$store.dispatch('moveCreature', {
+        creatureId: this.creatureId,
+        x: -0.2,
+        y: 0
+      })
     }, constants.FRAME_RATE / 2)
   }
 }

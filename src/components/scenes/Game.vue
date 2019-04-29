@@ -15,7 +15,7 @@
       :data="object.data" :offsetX="map.edgesPositions.next.left")
   .game__creatures
     .game__creature(v-for="(creature, i) in creatures" :key="'creature:' + i"
-      :is="creature.component" :data="creature.data")
+      :is="creature.component" :data="creature.data" :creatureId="creature.id")
 </template>
 
 <script>

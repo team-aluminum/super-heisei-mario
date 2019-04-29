@@ -4,7 +4,7 @@
     Starting.starting(v-if="scene.current === 'starting'")
     Game.game(v-show="scene.current === 'game'")
     Hud
-    Sound
+    //- Sound
 </template>
 
 <script>

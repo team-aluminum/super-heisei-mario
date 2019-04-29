@@ -8,9 +8,13 @@ export default (state, { x, y }) => {
     bottomY: currentPosition.y,
     topY: currentPosition.y + playerSize.height
   }
-  let currentSidesRelativeToCollidingObject = { right: false, left: false, bottom: false, top: false }
+  const currentSidesRelativeToCollidingObjectArray = []
+  const targetObjects = [].concat(
+    state.things.currentMap.objects,
+    state.creatures
+  )
 
-  const collidingObject = state.things.currentMap.objects.find(object => {
+  const collidingObjects = targetObjects.filter(object => {
     const objectPosition = {
       x: object.data.position.x + state.map.edgesPositions.current.left,
       y: object.data.position.y
@@ -30,41 +34,62 @@ export default (state, { x, y }) => {
     )
     const verticalCollisionDistance = (playerSize.height + objectSize.height) / 2
     if (horizontalDistance < horizontalCollisionDistance && verticalDistance < verticalCollisionDistance) {
-      currentSidesRelativeToCollidingObject = {
+      const sides = {
         right: objectEdgesPosition.rightX <= currentEdgesPosition.leftX,
         left: currentEdgesPosition.rightX <= objectEdgesPosition.leftX,
         bottom: currentEdgesPosition.topY <= objectEdgesPosition.bottomY,
         top: objectEdgesPosition.topY <= currentEdgesPosition.bottomY
       }
+      if (!sides.right && !sides.left && !sides.bottom && !sides.top) {
+        const horizontalCollisionLenght = ((playerSize.width + objectSize.width) / 2) - horizontalDistance
+        const verticalCollidingLength = ((playerSize.height + objectSize.height) / 2) - verticalDistance
+        if (horizontalCollisionLenght <= verticalCollidingLength) {
+          if (currentPosition.x <= objectPosition.x) {
+            sides.left = true
+          } else {
+            sides.right = true
+          }
+        } else {
+          if (currentPosition.y <= objectPosition.y) {
+            sides.bottom = true
+          } else {
+            sides.top = true
+          }
+        }
+      }
+      currentSidesRelativeToCollidingObjectArray.push(sides)
       return true
     }
     return false
   })
-  if (collidingObject) {
-    const objectPosition = {
-      x: collidingObject.data.position.x + state.map.edgesPositions.current.left,
-      y: collidingObject.data.position.y
-    }
-    const objectSize = collidingObject.data.size
-    const objectEdgesPosition = {
-      leftX: objectPosition.x,
-      rightX: objectPosition.x + objectSize.width,
-      bottomY: objectPosition.y,
-      topY: objectPosition.y + objectSize.height
-    }
+  if (collidingObjects.length > 0) {
+    collidingObjects.forEach((collidingObject, i) => {
+      const objectPosition = {
+        x: collidingObject.data.position.x + state.map.edgesPositions.current.left,
+        y: collidingObject.data.position.y
+      }
+      const objectSize = collidingObject.data.size
+      const objectEdgesPosition = {
+        leftX: objectPosition.x,
+        rightX: objectPosition.x + objectSize.width,
+        bottomY: objectPosition.y,
+        topY: objectPosition.y + objectSize.height
+      }
 
-    if (currentSidesRelativeToCollidingObject.right) {
-      supposedPosition.x = objectEdgesPosition.rightX + (playerSize.width / 2)
-    } else if (currentSidesRelativeToCollidingObject.left) {
-      supposedPosition.x = objectEdgesPosition.leftX - (playerSize.width / 2)
-    }
-    if (currentSidesRelativeToCollidingObject.bottom) {
-      supposedPosition.y = objectEdgesPosition.bottomY - playerSize.height
-      state.player.events.push('stopJump')
-    } else if (currentSidesRelativeToCollidingObject.top) {
-      supposedPosition.y = objectEdgesPosition.topY
-      state.player.events.push('land')
-    }
+      const currentSidesRelativeToCollidingObject = currentSidesRelativeToCollidingObjectArray[i]
+      if (currentSidesRelativeToCollidingObject.right) {
+        supposedPosition.x = objectEdgesPosition.rightX + (playerSize.width / 2)
+      } else if (currentSidesRelativeToCollidingObject.left) {
+        supposedPosition.x = objectEdgesPosition.leftX - (playerSize.width / 2)
+      }
+      if (currentSidesRelativeToCollidingObject.bottom) {
+        supposedPosition.y = objectEdgesPosition.bottomY - playerSize.height
+        state.player.events.push('stopJump')
+      } else if (currentSidesRelativeToCollidingObject.top) {
+        supposedPosition.y = objectEdgesPosition.topY
+        state.player.events.push('land')
+      }
+    })
   }
 
   if (supposedPosition.x < 0) {

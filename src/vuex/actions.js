@@ -41,6 +41,10 @@ export default {
   addCreature ({ commit }, creature) {
     commit('ADD_CREATURE', creature)
   },
+  moveCreature ({ commit }, { creatureId, x, y }) {
+    commit('MOVE_CREATURE', { creatureId, x, y })
+  },
+
   setMap ({ commit }, map) {
     commit('SET_MAP', map)
   },
