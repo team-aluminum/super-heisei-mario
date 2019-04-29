@@ -73,6 +73,9 @@ export default {
         this.$store.dispatch('addPlayerEvent', 'stopJump')
       } else {
         this.inputtingKey = ''
+        if (this.player.status.moving) {
+          this.$store.dispatch('setPlayerStatus', { moving: false })
+        }
       }
     },
     handleKey () {

@@ -6,6 +6,13 @@ export default {
     Object.assign(state.scene, scene)
   },
   MOVE_PLAYER (state, { x, y }) {
+    if (x > 0) {
+      state.player.status.moving = true
+      state.player.status.direction = 'right'
+    } else if (x < 0) {
+      state.player.status.moving = true
+      state.player.status.direction = 'left'
+    }
     movePlayer(state, { x, y })
   },
   PREPARE_RESTART (state) {
@@ -14,12 +21,12 @@ export default {
       y: constants.INITIAL_POSITION.y
     }
     Object.assign(state.player.position.current, {
-      x: constants.INITIAL_POSITION.x,
-      y: constants.INITIAL_POSITION.y
+      x: initialPosition.x,
+      y: initialPosition.y
     })
     Object.assign(state.player.position.previous, {
-      x: constants.INITIAL_POSITION.x,
-      y: constants.INITIAL_POSITION.y
+      x: initialPosition.x,
+      y: initialPosition.y
     })
     Object.assign(state.player.status, {
       life: state.player.status.life - 1,

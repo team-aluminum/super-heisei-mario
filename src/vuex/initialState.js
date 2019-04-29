@@ -12,7 +12,9 @@ export default {
     status: {
       life: 5,
       alive: true,
-      dead: false
+      dead: false,
+      moving: false,
+      direction: 'right'
     },
     position: {
       current: {

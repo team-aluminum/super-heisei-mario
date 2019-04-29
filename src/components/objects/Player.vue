@@ -8,11 +8,27 @@ import constants from '@/constants'
 export default {
   computed: {
     playerStyle () {
+      let backgroundImage = 'mario-right.png'
+      if (this.player.status.direction === 'right') {
+        if (this.player.jump.jumpable && this.player.status.moving) {
+          backgroundImage = 'mario-right-moving.gif'
+        } else if (!this.player.jump.jumpable) {
+          backgroundImage = 'mario-right-jumping.png'
+        } else {
+          backgroundImage = 'mario-right.png'
+        }
+      }
+      if (this.player.status.moving.right && this.player.jump.jumpable) {
+        backgroundImage = ''
+      } else if (this.player.status.moving.right && this.player.jump.timer > 0) {
+        backgroundImage = 'mario-right-jumping.png'
+      }
       return {
         bottom: this.player.position.current.y + 'px',
         width: this.player.size.width + 'px',
         height: this.player.size.height + 'px',
-        left: `calc(50% - ${this.player.size.width}px / 2)`
+        left: `calc(50% - ${this.player.size.width}px / 2)`,
+        backgroundImage: `url(${require(`@/assets/mario/${backgroundImage}`)})`
       }
     },
     ...mapGetters({
@@ -94,7 +110,7 @@ export default {
 .player
   width: 30px
   height: 30px
-  background-color: black
   position: absolute
   z-index: 1
+  background-size: 30px 30px
 </style>
