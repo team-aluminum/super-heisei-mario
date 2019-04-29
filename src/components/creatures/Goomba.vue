@@ -29,7 +29,6 @@ export default {
     }
   },
   beforeDestroy () {
-    console.log('defeated!!!')
     clearInterval(this.timer)
   },
   created () {
@@ -40,6 +39,17 @@ export default {
         y: 0
       })
     }, constants.FRAME_RATE / 2)
+  },
+  watch: {
+    data: {
+      handler () {
+        if (this.data.dead) {
+          this.$store.dispatch('defeatCreature', this.creatureId)
+          this.$store.dispatch('addPlayerEvent', 'smallJump')
+        }
+      },
+      deep: true
+    }
   }
 }
 </script>

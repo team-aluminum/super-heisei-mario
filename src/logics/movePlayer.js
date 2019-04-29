@@ -92,6 +92,17 @@ export default (state, { x, y }) => {
 
       if (collidingObject.data.type === 'creature') {
         if (currentSidesRelativeToCollidingObject.top) {
+          const creatureId = collidingObject.id
+          const creatureIndex = state.creatures.findIndex(c => c.id === creatureId)
+          const creature = state.creatures.find(c => c.id === creatureId)
+          if (creatureIndex < 0) {
+            return
+          }
+          state.creatures.splice(creatureIndex, 1, Object.assign(creature,
+            Object.assign(creature.data, {
+              dead: true
+            })
+          ))
         } else {
           state.player.events.push('dead')
         }

@@ -44,6 +44,9 @@ export default {
   moveCreature ({ commit }, { creatureId, x, y }) {
     commit('MOVE_CREATURE', { creatureId, x, y })
   },
+  defeatCreature ({ commit }, creatureId) {
+    commit('DEFEAT_CREATURE', creatureId)
+  },
 
   setMap ({ commit }, map) {
     commit('SET_MAP', map)

@@ -103,6 +103,13 @@ export default {
       })
     ))
   },
+  DEFEAT_CREATURE (state, creatureId) {
+    const creatureIndex = state.creatures.findIndex(c => c.id === creatureId)
+    if (creatureIndex < 0) {
+      return
+    }
+    state.creatures.splice(creatureIndex, 1)
+  },
 
   SET_MAP (state, map) {
     Object.assign(state.map, map)
