@@ -1,6 +1,9 @@
 <template lang="pug">
 .hud
   .hud__center(v-show="centerMessage.length > 0") {{ centerMessage }}
+  .hud__life
+    .hud__lifeIcon
+    .hud__lifeCount ×{{ player.status.life }}
 </template>
 
 <script>
@@ -21,6 +24,8 @@ export default {
       handler () {
         if (this.player.status.dead) {
           this.centerMessage = 'Press R to Restart'
+        } else {
+          this.centerMessage = ''
         }
       },
       deep: true
@@ -46,4 +51,21 @@ export default {
     text-align: center
     font-weight: bold
     font-size: 32px
+  &__life
+    position: absolute
+    top: 30px
+    right: 30px
+    height: 20px
+    &Icon
+      width: 20px
+      height: 20px
+      background-color: black
+      display: inline-block
+    &Count
+      display: inline-block
+      line-height: 20px
+      height: 20px
+      vertical-align: 2px
+      font-size: 18px
+      font-weight: bold
 </style>

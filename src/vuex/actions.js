@@ -2,6 +2,12 @@ export default {
   setScene ({ commit }, scene) {
     commit('SET_SCENE', scene)
   },
+  prepareRestart({ commit }) {
+    commit('PREPARE_RESTART')
+  },
+  restart ({ commit }) {
+    commit('RESTART')
+  },
 
   movePlayer ({ commit }, { x, y }) {
     commit('MOVE_PLAYER', { x, y })

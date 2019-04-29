@@ -1,11 +1,34 @@
 import movePlayer from '@/logics/movePlayer'
 import { moveToPreviousMap, moveToNextMap } from '@/logics/moveMap'
+import constants from '@/constants'
 export default {
   SET_SCENE (state, scene) {
-    Object.assign(state, scene)
+    Object.assign(state.scene, scene)
   },
   MOVE_PLAYER (state, { x, y }) {
     movePlayer(state, { x, y })
+  },
+  PREPARE_RESTART (state) {
+    const initialPosition = {
+      x: constants.INITIAL_POSITION.x,
+      y: constants.INITIAL_POSITION.y
+    }
+    Object.assign(state.player.position.current, {
+      x: initialPosition.x,
+      y: initialPosition.y
+    })
+    Object.assign(state.player.position.previous, {
+      x: initialPosition.x,
+      y: initialPosition.y
+    })
+    Object.assign(state.player.status, {
+      life: state.player.status.life - 1,
+      alive: true,
+      dead: false
+    })
+  },
+  RESTART (state) {
+    Object.assign(state.scene, { current: 'game' })
   },
   FORCE_MOVE_PLAYER (state, { x, y }) {
     Object.assign(state.player.position.previous, state.player.position.current)

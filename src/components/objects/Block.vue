@@ -26,5 +26,4 @@ export default {
 <style lang="stylus" scoped>
 .block
   position: absolute
-  background-color: gray
 </style>

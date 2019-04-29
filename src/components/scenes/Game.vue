@@ -1,20 +1,19 @@
 <template lang="pug">
 .game
-  .game__screen(:style="screenStyle")
-    Hud
-    Player
-    .game__things
-      .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
-        :is="background.component" :data="background.data")
-      .game__object.-previous(v-for="(object, i) in objects.previousMap"
-        :key="'object:previous:' + i" :is="object.component"
-        :data="object.data" :offsetX="map.edgesPositions.previous.left")
-      .game__object.-current(v-for="(object, i) in objects.currentMap"
-        :key="'object:current:' + i" :is="object.component"
-        :data="object.data" :offsetX="map.edgesPositions.current.left")
-      .game__object.-next(v-for="(object, i) in objects.nextMap"
-        :key="'object:next:' + i" :is="object.component"
-        :data="object.data" :offsetX="map.edgesPositions.next.left")
+  Hud
+  Player
+  .game__things
+    .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
+      :is="background.component" :data="background.data")
+    .game__object.-previous(v-for="(object, i) in objects.previousMap"
+      :key="'object:previous:' + i" :is="object.component"
+      :data="object.data" :offsetX="map.edgesPositions.previous.left")
+    .game__object.-current(v-for="(object, i) in objects.currentMap"
+      :key="'object:current:' + i" :is="object.component"
+      :data="object.data" :offsetX="map.edgesPositions.current.left")
+    .game__object.-next(v-for="(object, i) in objects.nextMap"
+      :key="'object:next:' + i" :is="object.component"
+      :data="object.data" :offsetX="map.edgesPositions.next.left")
 </template>
 
 <script>
@@ -40,18 +39,10 @@ export default {
       player: 'getPlayer',
       objects: 'getObjects',
       backgrounds: 'getBackgrounds',
-      screen: 'getScreen',
       map: 'getMap'
     }),
-    screenStyle () {
-      return {
-        width: this.screen.size.width + 'px',
-        height: this.screen.size.height + 'px'
-      }
-    },
-    playerAlive () {
-      return this.player.status.alive
-    }
+    playerAlive () { return this.player.status.alive },
+    playerDead () { return this.player.status.dead }
   },
   async created () {
     document.addEventListener('keydown', this.keydown)
@@ -97,6 +88,12 @@ export default {
             this.$store.dispatch('addPlayerEvent', 'dead')
             break
         }
+      } else if (this.playerDead) {
+        switch (this.inputtingKey) {
+          case 'r':
+            this.$store.dispatch('setScene', { current: 'starting' })
+            break
+        }
       }
     },
     draw () {
@@ -119,20 +116,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .game
-  position: fixed
-  height: 100vh
-  width: 100vw
-  min-width: 800px
-  position: relative
-  overflow: hidden
-  &__screen
-    border: 1px solid black
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    margin: auto
+  width: 100%
+  height: 100%
 </style>
