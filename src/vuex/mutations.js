@@ -36,6 +36,7 @@ export default {
   },
   RESTART (state) {
     state.player.status.alive = true
+    state.player.events.push('restart')
     Object.assign(state.scene, { current: 'game' })
   },
   FORCE_MOVE_PLAYER (state, { x, y }) {

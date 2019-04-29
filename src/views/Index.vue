@@ -1,19 +1,25 @@
 <template lang="pug">
 .index
-  h1 Super Heisei Mario
-  router-link.index__start(to='/playing') Start Playing
+  img.index__title_img(src='@/assets/title/images/title.png' @click="$router.push('/playing')")
 </template>
+
+<script>
+export default {
+  created () {
+    document.addEventListener('keydown', () => {
+      this.$router.push('/playing')
+    })
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 .index
+  width: 100%
+  height: 100vh
+  background-color: #fcfcfc
   text-align: center
-  padding-top: 300px
-  h1
-    margin-bottom: 30px
-  &__start
-    display: inline-block
-    border: 1px solid
-    padding: 10px 20px
-    &:hover
-      opacity: 0.7
+  padding-top: 10vh
+  &__title_img
+    height: 80vh
 </style>
