@@ -14,7 +14,7 @@ export default {
         width: this.data.size.width + 'px',
         height: this.data.size.height + 'px',
         left: `calc(50% + ${left}px)`,
-        bottom: this.data.position.y
+        bottom: this.data.position.y + 'px'
       }, this.data.styles)
     },
     ...mapGetters({
@@ -46,6 +46,4 @@ export default {
 .goomba
   position: absolute
   background-color: brown
-  left: 10px
-  bottom: 30px
 </style>

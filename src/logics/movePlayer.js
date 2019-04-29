@@ -89,6 +89,13 @@ export default (state, { x, y }) => {
         supposedPosition.y = objectEdgesPosition.topY
         state.player.events.push('land')
       }
+
+      if (collidingObject.data.type === 'creature') {
+        if (currentSidesRelativeToCollidingObject.top) {
+        } else {
+          state.player.events.push('dead')
+        }
+      }
     })
   }
 

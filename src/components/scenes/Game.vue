@@ -67,7 +67,8 @@ export default {
       component: 'Goomba',
       data: {
         position: { x: 300, y: 30 },
-        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH }
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+        type: 'creature'
       }
     })
   },
