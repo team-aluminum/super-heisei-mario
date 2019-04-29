@@ -59,6 +59,7 @@ export default {
       previous: { left: 0 },
       current: { left: 0 },
       next: { left: 0 }
-    }
+    },
+    gameHard: null
   }
 }

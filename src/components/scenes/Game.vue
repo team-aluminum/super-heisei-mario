@@ -52,7 +52,8 @@ export default {
         edgesPositions: Object.assign(
           this.map.edgesPositions,
           { next: { left: data.mapWidth } }
-        )
+        ),
+        gameHard: data.gameHard
       })
     })
     mapHandler(this.map.nextName, 'next', true)

@@ -8,7 +8,8 @@ export const moveToPreviousMap = async (state) => {
       edgesPositions: Object.assign(state.map.edgesPositions, {
         current: { left: state.map.edgesPositions.previous.left },
         next: { left: state.map.edgesPositions.current.left }
-      })
+      }),
+      gameHard: data.gameHard
     })
   })
   Object.assign(state.things, {
@@ -34,7 +35,8 @@ export const moveToNextMap = async (state) => {
         previous: { left: state.map.edgesPositions.current.left },
         current: { left: state.map.edgesPositions.next.left },
         next: { left: state.map.edgesPositions.next.left + data.mapWidth }
-      }
+      },
+      gameHard: data.gameHard
     })
   })
   Object.assign(state.things, {

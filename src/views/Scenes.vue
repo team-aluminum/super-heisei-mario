@@ -5,6 +5,7 @@
     Game.game(v-show="scene.current === 'game'")
     Hud
     Sound
+  GameHard
 </template>
 
 <script>
@@ -14,7 +15,8 @@ export default {
     Hud: () => import('@/components/Hud'),
     Game: () => import('@/components/scenes/Game'),
     Starting: () => import('@/components/scenes/Starting'),
-    Sound: () => import('@/components/Sound')
+    Sound: () => import('@/components/Sound'),
+    GameHard: () => import('@/components/GameHard')
   },
   computed: {
     screenStyle () {
