@@ -10,18 +10,13 @@ export default {
     playerStyle () {
       let backgroundImage = 'mario-right.png'
       if (this.player.status.direction === 'right') {
-        if (this.player.jump.jumpable && this.player.status.moving) {
-          backgroundImage = 'mario-right-moving.gif'
-        } else if (!this.player.jump.jumpable) {
+        if (this.player.status.floading) {
           backgroundImage = 'mario-right-jumping.png'
+        } else if (this.player.status.moving) {
+          backgroundImage = 'mario-right-moving.gif'
         } else {
           backgroundImage = 'mario-right.png'
         }
-      }
-      if (this.player.status.moving.right && this.player.jump.jumpable) {
-        backgroundImage = ''
-      } else if (this.player.status.moving.right && this.player.jump.timer > 0) {
-        backgroundImage = 'mario-right-jumping.png'
       }
       return {
         bottom: this.player.position.current.y + 'px',
@@ -61,13 +56,10 @@ export default {
   },
   methods: {
     jump () {
-      if (!this.player.jump.jumpable) {
+      if (this.player.status.floating) {
         return
       }
-      this.$store.dispatch('setPlayerJump', { jumpable: false })
-      if (this.player.jump.timer > 0) {
-        return
-      }
+      this.$store.dispatch('setPlayerStatus', { floating: true })
       const frameCount = 30
       this.$store.dispatch('setPlayerJump', {
         frameCount,
@@ -87,7 +79,7 @@ export default {
       this.$store.dispatch('setPlayerJump', { timer: 0 })
     },
     land () {
-      this.$store.dispatch('setPlayerJump', { jumpable: true })
+      this.$store.dispatch('setPlayerStatus', { floating: false })
     },
     dead () {
       this.$store.dispatch('setPlayerStatus', { alive: false })

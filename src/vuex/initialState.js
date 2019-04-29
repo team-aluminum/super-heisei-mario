@@ -14,6 +14,7 @@ export default {
       alive: true,
       dead: false,
       moving: false,
+      floating: false,
       direction: 'right'
     },
     position: {
@@ -32,8 +33,7 @@ export default {
     },
     jump: {
       timer: 0,
-      frameCount: 0,
-      jumpable: true
+      frameCount: 0
     },
     events: []
   },
