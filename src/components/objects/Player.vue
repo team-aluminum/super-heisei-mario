@@ -10,7 +10,7 @@ export default {
     playerStyle () {
       let backgroundImage = 'mario-right.png'
       if (this.player.status.direction === 'right') {
-        if (this.player.status.floading) {
+        if (this.player.status.floating) {
           backgroundImage = 'mario-right-jumping.png'
         } else if (this.player.status.moving) {
           backgroundImage = 'mario-right-moving.gif'
@@ -60,6 +60,9 @@ export default {
         return
       }
       this.$store.dispatch('setPlayerStatus', { floating: true })
+      if (this.player.jump.timer > 0) {
+        return
+      }
       const frameCount = 30
       this.$store.dispatch('setPlayerJump', {
         frameCount,

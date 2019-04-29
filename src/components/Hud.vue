@@ -1,8 +1,9 @@
 <template lang="pug">
 .hud
   .hud__center(v-show="centerMessage.length > 0") {{ centerMessage }}
+  .hud__jumping(v-show="player.status.floating")
   .hud__life
-    .hud__lifeIcon
+    .hud__lifeIcon(:style="{}")
     .hud__lifeCount ×{{ player.status.life }}
 </template>
 
@@ -36,10 +37,11 @@ export default {
 
 <style lang="stylus">
 .hud
-  position: relative
+  position: absolute
   width: 100%
   height: 100%
   z-index: 1000
+  top: 0
   &__center
     position: absolute
     top: 0
@@ -59,8 +61,9 @@ export default {
     &Icon
       width: 20px
       height: 20px
-      background-color: black
       display: inline-block
+      background-image: url('~@/assets/mario/mario-right.png')
+      background-size: 20px 20px
     &Count
       display: inline-block
       line-height: 20px
@@ -68,4 +71,10 @@ export default {
       vertical-align: 2px
       font-size: 18px
       font-weight: bold
+  &__jumping
+    top: 0
+    left: 0
+    height: 50px
+    width: 50px
+    background-color: red
 </style>

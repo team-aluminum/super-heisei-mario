@@ -1,6 +1,5 @@
 <template lang="pug">
 .game
-  Hud
   Player
   .game__things
     .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
@@ -63,7 +62,9 @@ export default {
   methods: {
     keydown (e) {
       if (e.key === ' ' && this.playerAlive) {
-        this.$store.dispatch('addPlayerEvent', 'jump')
+        if (!this.player.status.floating) {
+          this.$store.dispatch('addPlayerEvent', 'jump')
+        }
       } else {
         this.inputtingKey = e.key
       }

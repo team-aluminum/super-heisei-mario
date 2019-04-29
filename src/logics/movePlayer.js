@@ -70,6 +70,9 @@ export default (state, { x, y }) => {
   if (supposedPosition.x < 0) {
     supposedPosition.x = 0
   }
+  if (supposedPosition.y < currentPosition.y) {
+    state.player.status.floating = true
+  }
 
   Object.assign(state.player.position.previous, currentPosition)
   Object.assign(state.player.position.current, supposedPosition)

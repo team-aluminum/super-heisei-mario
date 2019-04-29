@@ -3,12 +3,14 @@
   .scenes__screen(:style="screenStyle")
     Starting.starting(v-if="scene.current === 'starting'")
     Game.game(v-show="scene.current === 'game'")
+    Hud
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 export default {
   components: {
+    Hud: () => import('@/components/Hud'),
     Game: () => import('@/components/scenes/Game'),
     Starting: () => import('@/components/scenes/Starting')
   },
