@@ -9,7 +9,9 @@ export default {
   computed: {
     playerStyle () {
       let backgroundImage = 'mario-right.png'
-      if (this.player.status.direction === 'right') {
+      if (!this.player.status.alive && !this.player.status.dead) {
+        backgroundImage = 'mario-dead.png'
+      } else if (this.player.status.direction === 'right') {
         if (this.player.status.floating) {
           backgroundImage = 'mario-right-jumping.png'
         } else if (this.player.status.moving) {
