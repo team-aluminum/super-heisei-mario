@@ -3,31 +3,23 @@ export default {
   nextMapName: null,
   chips: `
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp hd2 fem emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp hd3 fem fem emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp hd4 fem fem fem emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp hd5 fem fem fem fem emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp hd6 fem fem fem fem fem emp emp emp emp emp emp emp emp emp emp emp
-emp emp hd7 fem fem fem fem fem fem emp emp emp emp emp emp emp emp emp emp emp
-emp hd8 fem fem fem fem fem fem fem emp emp emp emp emp emp emp emp emp emp emp
-hd9 fem fem fem fem fem fem fem fem emp emp emp emp emp emp emp emp emp emp emp
-f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp blk emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem emp
+emp emp emp emp emp emp emp hb2 fem emp emp emp emp emp emp emp emp emp fem emp
+emp emp emp emp emp emp hb3 fem fem emp emp emp emp emp emp emp emp emp fem emp
+emp emp emp emp emp hb4 fem fem fem emp emp emp emp emp emp emp emp emp fem emp
+emp emp emp emp hb5 fem fem fem fem emp emp emp emp emp emp emp emp emp fem emp
+emp emp emp hb6 fem fem fem fem fem emp emp emp emp emp emp emp emp emp fem emp
+emp emp hb7 fem fem fem fem fem fem emp emp emp emp emp emp emp emp emp fem emp
+emp hb8 fem fem fem fem fem fem fem emp emp emp emp emp emp emp emp emp fem emp
+hb9 fem fem fem fem fem fem fem fem emp emp emp emp emp emp emp emp emp flg emp
+f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
 `,
   chipMeta: {
     emp: { empty: true },
     fem: { empty: true },
-    blk: {
-      empty: false,
-      componentName: 'Block',
-      styles: {
-        backgroundImage: `url(${require('@/assets/stage10/block.gif')})`,
-        backgroundSize: '30px 30px'
-      }
-    },
     hdb: {
       empty: false,
       componentName: 'HardBlock',
@@ -117,10 +109,10 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     },
-    f19: {
+    f20: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 19,
+      horizontalGridCount: 20,
       styles: {
         backgroundImage: `url(${require('@/assets/stage10/floor.png')})`,
         backgroundSize: '30px 30px'

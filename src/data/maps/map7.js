@@ -12,10 +12,10 @@ emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp blk blk emp emp emp emp emp hdb emp emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp hd2 fem emp emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp hd3 fem fem emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp hd4 fem fem fem emp emp
-f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp hb2 fem emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp hb3 fem fem emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp hb4 fem fem fem emp emp
+f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
 `,
   chipMeta: {
     emp: { empty: true },
@@ -71,10 +71,10 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     },
-    f19: {
+    f20: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 19,
+      horizontalGridCount: 20,
       styles: {
         backgroundImage: `url(${require('@/assets/stage7/floor.png')})`,
         backgroundSize: '30px 30px'

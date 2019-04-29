@@ -11,11 +11,11 @@ emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-hdb emp emp emp emp emp emp emp emp emp emp hd2 fem emp emp emp emp emp emp emp
-hd2 fem emp emp emp emp emp emp emp emp hd3 fem fem emp emp hdb emp emp emp emp
-hd3 fem fem emp emp emp emp emp emp hd4 fem fem fem emp emp hd2 fen emp emp emp
-hd4 fem fem fem emp emp emp emp hd5 fem fem fem fem emp emp hd3 fem fem emp emp
-f19 fem fem fem fem fem fem fem fem fem fem fem fem emp emp fem fem fem fem fem
+hdb emp emp emp emp emp emp emp emp emp emp hb2 fem emp emp emp emp emp emp emp
+hb2 fem emp emp emp emp emp emp emp emp hb3 fem fem emp emp hdb emp emp emp emp
+hb3 fem fem emp emp emp emp emp emp hb4 fem fem fem emp emp hb2 fem emp emp emp
+hb4 fem fem fem emp emp emp emp hb5 fem fem fem fem emp emp hb3 fem fem emp emp
+f14 fem fem fem fem fem fem fem fem fem fem fem fem emp emp f05 fem fem fem fem
 `,
   chipMeta: {
     emp: { empty: true },
@@ -72,10 +72,19 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem emp emp fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     },
-    f19: {
+    f05: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 19,
+      horizontalGridCount: 5,
+      styles: {
+        backgroundImage: `url(${require('@/assets/stage8/floor.png')})`,
+        backgroundSize: '30px 30px'
+      }
+    },
+    f14: {
+      empty: false,
+      componentName: 'Floor',
+      horizontalGridCount: 14,
       styles: {
         backgroundImage: `url(${require('@/assets/stage8/floor.png')})`,
         backgroundSize: '30px 30px'
