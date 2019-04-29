@@ -18,7 +18,8 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'Block',
       styles: {
-        backgroundColor: 'blue'
+        backgroundImage: `url(${require('@/assets/stage3/block.png')})`,
+        backgroundSize: '30px 30px'
       }
     },
     f20: {
@@ -26,7 +27,8 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       componentName: 'Floor',
       horizontalGridCount: 20,
       styles: {
-        backgroundSize: '20px 20px'
+        backgroundImage: `url(${require('@/assets/stage3/floor.png')})`,
+        backgroundSize: '30px 30px'
       }
     }
   }

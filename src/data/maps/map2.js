@@ -18,7 +18,8 @@ f16 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem emp emp f02 fem
       empty: false,
       componentName: 'Block',
       styles: {
-        backgroundColor: 'red'
+        backgroundImage: `url(${require('@/assets/stage2/block.png')})`,
+        backgroundSize: '30px 30px'
       }
     },
     f16: {
@@ -26,7 +27,8 @@ f16 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem emp emp f02 fem
       componentName: 'Floor',
       horizontalGridCount: 16,
       styles: {
-        backgroundSize: '20px 20px'
+        backgroundImage: `url(${require('@/assets/stage2/floor.png')})`,
+        backgroundSize: '30px 30px'
       }
     },
     f02: {
@@ -34,7 +36,8 @@ f16 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem emp emp f02 fem
       componentName: 'Floor',
       horizontalGridCount: 5,
       styles: {
-        backgroundSize: '20px 20px'
+        backgroundImage: `url(${require('@/assets/stage2/floor.png')})`,
+        backgroundSize: '30px 30px'
       }
     }
   }
