@@ -1,4 +1,7 @@
 export default {
+  getScene (state) {
+    return state.scene
+  },
   getPlayer (state) {
     return state.player
   },

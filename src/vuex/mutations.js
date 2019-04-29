@@ -1,10 +1,15 @@
 import movePlayer from '@/logics/movePlayer'
 import { moveToPreviousMap, moveToNextMap } from '@/logics/moveMap'
 export default {
+  set_scene (state, scene) {
+    Object.assign(state, scene)
+  },
   MOVE_PLAYER (state, { x, y }) {
     movePlayer(state, { x, y })
   },
-
+  SET_PLAYER_STATUS (state, status) {
+    Object.assign(state.player.status, status)
+  },
   ADD_PLAYER_EVENT (state, eventName) {
     state.player.events.push(eventName)
   },

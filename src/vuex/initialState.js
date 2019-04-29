@@ -1,4 +1,7 @@
 export default {
+  scene: {
+    current: 'game'
+  },
   screen: {
     size: {
       width: 800,
@@ -6,6 +9,9 @@ export default {
     }
   },
   player: {
+    status: {
+      alive: true
+    },
     position: {
       current: {
         y: 30,

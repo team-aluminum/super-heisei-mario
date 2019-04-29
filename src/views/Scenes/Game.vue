@@ -46,6 +46,9 @@ export default {
         width: this.screen.size.width + 'px',
         height: this.screen.size.height + 'px'
       }
+    },
+    playerAlive () {
+      return this.player.status.alive
     }
   },
   async created () {
@@ -66,37 +69,45 @@ export default {
   },
   methods: {
     keydown (e) {
-      if (e.key === ' ') {
+      if (e.key === ' ' && this.playerAlive) {
         this.$store.dispatch('addPlayerEvent', 'jump')
       } else {
         this.inputtingKey = e.key
       }
     },
     keyup (e) {
-      if (e.key === ' ') {
+      if (e.key === ' ' && this.playerAlive) {
         this.$store.dispatch('addPlayerEvent', 'stopJump')
       } else {
         this.inputtingKey = ''
       }
     },
     handleKey () {
-      switch (this.inputtingKey) {
-        case 'ArrowLeft':
-          this.$store.dispatch('movePlayer', { x: -7, y: 0 })
-          break
-        case 'ArrowRight':
-          this.$store.dispatch('movePlayer', { x: +7, y: 0 })
-          break
+      if (this.playerAlive) {
+        switch (this.inputtingKey) {
+          case 'ArrowLeft':
+            this.$store.dispatch('movePlayer', { x: -7, y: 0 })
+            break
+          case 'ArrowRight':
+            this.$store.dispatch('movePlayer', { x: +7, y: 0 })
+            break
+        }
       }
     },
     draw () {
       this.handleKey()
-      this.$store.dispatch('movePlayer', { x: 0, y: -4 })
+      if (this.playerAlive) {
+        this.$store.dispatch('movePlayer', { x: 0, y: -4 })
+      }
 
       if (this.player.position.current.x < this.map.edgesPositions.current.left) {
         this.$store.dispatch('moveToPreviousMap')
       } else if (this.map.edgesPositions.next.left < this.player.position.current.x) {
         this.$store.dispatch('moveToNextMap')
+      }
+
+      if (this.player.position.current.y < -30 && this.playerAlive) {
+        this.$store.dispatch('addPlayerEvent', 'dead')
       }
     }
   }
@@ -110,6 +121,7 @@ export default {
   width: 100vw
   min-width: 800px
   position: relative
+  overflow: hidden
   &__screen
     border: 1px solid black
     position: absolute
@@ -118,5 +130,4 @@ export default {
     right: 0
     bottom: 0
     margin: auto
-    overflow: hidden
 </style>

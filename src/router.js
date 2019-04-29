@@ -16,9 +16,9 @@ export default new Router({
     },
     {
       path: '/playing',
-      name: 'Game',
+      name: 'Scenes',
       component () {
-        return import('@/views/Game.vue')
+        return import('@/views/Scenes.vue')
       }
     }
   ]

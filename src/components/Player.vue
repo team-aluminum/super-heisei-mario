@@ -32,6 +32,9 @@ export default {
       if (this.player.events.indexOf('land') >= 0) {
         this.land()
       }
+      if (this.player.events.indexOf('dead') >= 0) {
+        this.dead()
+      }
       if (this.player.events.length > 0) {
         this.$store.dispatch('clearPlayerEvent')
       }
@@ -71,6 +74,9 @@ export default {
     },
     land () {
       this.$store.dispatch('setPlayerJump', { jumpable: true })
+    },
+    dead () {
+      this.$store.dispatch('setPlayerStatus', { alive: false })
     }
   }
 }

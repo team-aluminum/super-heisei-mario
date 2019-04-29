@@ -1,6 +1,13 @@
 export default {
+  setScene ({ commit }, scene) {
+    commit('SET_SCENE', scene)
+  },
+
   movePlayer ({ commit }, { x, y }) {
     commit('MOVE_PLAYER', { x, y })
+  },
+  setPlayerStatus ({ commit }, status) {
+    commit('SET_PLAYER_STATUS', status)
   },
   addPlayerEvent ({ commit }, eventName) {
     commit('ADD_PLAYER_EVENT', eventName)
