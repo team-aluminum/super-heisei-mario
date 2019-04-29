@@ -89,7 +89,7 @@ export default {
           width: 20px
           height: 20px
           display: inline-block
-          background-image: url('~@/assets/mario/mario-right.png')
+          background-image: url('~@/assets/object/coin.png')
           background-size: 20px 20px
       &Life
         height: 20px
