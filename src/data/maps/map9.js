@@ -24,7 +24,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'Block',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage9/block.png')})`,
+        backgroundImage: `url(${require('@/assets/stage9/block.gif')})`,
         backgroundSize: '30px 30px'
       }
     },
@@ -32,7 +32,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'QuestionBlockCoin',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage9/question_block.png')})`,
+        backgroundImage: `url(${require('@/assets/stage9/question_block.gif')})`,
         backgroundSize: '30px 30px'
       }
     },
