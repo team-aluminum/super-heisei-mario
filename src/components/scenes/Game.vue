@@ -1,6 +1,7 @@
 <template lang="pug">
 .game
   .game__screen(:style="screenStyle")
+    Hud
     Player
     .game__things
       .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
@@ -28,6 +29,7 @@ export default {
     }
   },
   components: {
+    Hud: () => import('@/components/Hud'),
     Player: () => import('@/components/objects/Player'),
     Mountain: () => import('@/components/objects/Mountain'),
     Block: () => import('@/components/objects/Block'),
@@ -109,7 +111,7 @@ export default {
         this.$store.dispatch('moveToNextMap')
       }
 
-      if (this.player.position.current.y < -30 && this.playerAlive) {
+      if (this.player.position.current.y < -20 && this.playerAlive) {
         this.$store.dispatch('addPlayerEvent', 'dead')
       }
     }

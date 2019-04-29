@@ -6,7 +6,6 @@
 import { mapGetters } from 'vuex'
 import constants from '@/constants'
 export default {
-  props: ['events'],
   computed: {
     playerStyle () {
       return {
@@ -17,8 +16,7 @@ export default {
       }
     },
     ...mapGetters({
-      player: 'getPlayer',
-      screen: 'getScreen'
+      player: 'getPlayer'
     })
   },
   watch: {
@@ -81,6 +79,7 @@ export default {
         let frameCount = 20
         const timer = setInterval(() => {
           if (this.player.position.current.y <= -30) {
+            this.$store.dispatch('setPlayerStatus', { dead: true })
             clearInterval(timer)
           }
           this.$store.dispatch('forceMovePlayer', { x: 0, y: 5 * (frameCount-- >= 0 ? 1 : -1) })
