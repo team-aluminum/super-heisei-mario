@@ -70,7 +70,7 @@ export default {
       state.things.nextMap.objects.push(object)
     }
   },
-  ADD_BACKGROUND (state, background, offset = 'current') {
+  ADD_BACKGROUND (state, { object, offset = 'current' }) {
     if (offset === 'current') {
       state.things.currentMap.backgrounds.push(background)
     } else if (offset === 'previous') {
