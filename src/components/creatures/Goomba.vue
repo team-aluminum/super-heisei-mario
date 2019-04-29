@@ -10,11 +10,13 @@ export default {
   computed: {
     selfStyle () {
       const left = this.data.position.x - this.player.position.current.x
+      const backgroundImage = 'first.gif'
       return Object.assign({
         width: this.data.size.width + 'px',
         height: this.data.size.height + 'px',
         left: `calc(50% + ${left}px)`,
-        bottom: this.data.position.y + 'px'
+        bottom: this.data.position.y + 'px',
+        backgroundImage: `url(${require(`@/assets/goomba/${backgroundImage}`)})`
       }, this.data.styles)
     },
     ...mapGetters({
@@ -45,5 +47,5 @@ export default {
 <style lang="stylus">
 .goomba
   position: absolute
-  background-color: brown
+  background-size: 30px 30px
 </style>
