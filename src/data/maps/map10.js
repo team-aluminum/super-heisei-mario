@@ -3,7 +3,7 @@ export default {
   nextMapName: null,
   chips: `
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp blk emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem emp
