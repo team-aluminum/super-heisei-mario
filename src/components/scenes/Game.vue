@@ -13,6 +13,7 @@
     .game__object.-next(v-for="(object, i) in objects.nextMap"
       :key="'object:next:' + i" :is="object.component"
       :data="object.data" :offsetX="map.edgesPositions.next.left")
+  .game__creatures
 </template>
 
 <script>

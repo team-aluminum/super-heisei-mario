@@ -38,6 +38,9 @@ export default {
     commit('ADD_BACKGROUND', background)
   },
 
+  addCreature ({ commit }, creature) {
+    commit('ADD_CREATURE', creature)
+  },
   setMap ({ commit }, map) {
     commit('SET_MAP', map)
   },

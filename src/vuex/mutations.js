@@ -80,6 +80,9 @@ export default {
     }
   },
 
+  ADD_CREATURE (state, creature) {
+    state.creatures.push(creature)
+  },
   SET_MAP (state, map) {
     Object.assign(state.map, map)
   },
