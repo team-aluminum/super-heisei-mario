@@ -48,69 +48,69 @@ export default {
 </script>
 
 <style lang="stylus">
-  @font-face
-    font-family: 'PixelEmulator'
-    src: url('~@/assets/font/PixelEmulator.eot?#iefix') format('embedded-opentype'),  url('~@/assets/font/PixelEmulator.woff') format('woff'), url('~@/assets/font/PixelEmulator.ttf')  format('truetype'), url('~@/assets/font/PixelEmulator.svg#PixelEmulator') format('svg')
-    font-weight: normal
-    font-style: normal
-  .hud
-    font-family: 'PixelEmulator'
+@font-face
+  font-family: 'PixelEmulator'
+  src: url('~@/assets/font/PixelEmulator.eot?#iefix') format('embedded-opentype'),  url('~@/assets/font/PixelEmulator.woff') format('woff'), url('~@/assets/font/PixelEmulator.ttf')  format('truetype'), url('~@/assets/font/PixelEmulator.svg#PixelEmulator') format('svg')
+  font-weight: normal
+  font-style: normal
+.hud
+  font-family: 'PixelEmulator'
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 1000
+  top: 0
+  &.-whiteText
+    color: white
+  &__center
+    position: absolute
+    top: 0
+    bottom: 0
+    height: 50px
+    line-height: 50px
+    width: 100%
+    margin: auto
+    text-align: center
+    font-weight: bold
+    font-size: 32px
+  &__top
+    display: flex
+    align-items: center
     position: absolute
     width: 100%
-    height: 100%
-    z-index: 1000
-    top: 0
-    &.-whiteText
-      color: white
-    &__center
-      position: absolute
-      top: 0
-      bottom: 0
-      height: 50px
-      line-height: 50px
-      width: 100%
-      margin: auto
-      text-align: center
-      font-weight: bold
-      font-size: 32px
-    &__top
-      display: flex
-      align-items: center
-      position: absolute
-      width: 100%
-      top: 10px
-      left: 0
-      &__play
-        width: 150px
-        margin-left: 20px
-        &Count
+    top: 10px
+    left: 0
+    &__play
+      width: 150px
+      margin-left: 20px
+      &Count
+        display: inline-block
+        line-height: 20px
+        height: 20px
+        vertical-align: 2px
+        font-size: 18px
+        font-weight: bold
+      &Coin
+        &Icon
+          width: 20px
+          height: 20px
           display: inline-block
-          line-height: 20px
+          background-image: url('~@/assets/mario/mario-right.png')
+          background-size: 20px 20px
+      &Life
+        height: 20px
+        &Icon
+          width: 20px
           height: 20px
-          vertical-align: 2px
-          font-size: 18px
-          font-weight: bold
-        &Coin
-          &Icon
-            width: 20px
-            height: 20px
-            display: inline-block
-            background-image: url('~@/assets/mario/mario-right.png')
-            background-size: 20px 20px
-        &Life
-          height: 20px
-          &Icon
-            width: 20px
-            height: 20px
-            display: inline-block
-            background-image: url('~@/assets/mario/mario-right.png')
-            background-size: 20px 20px
-      &__world
-        width: 100%
-        text-align: center
-      &__time
-        width: 150px
-        text-align: right
-        margin-right: 20px
+          display: inline-block
+          background-image: url('~@/assets/mario/mario-right.png')
+          background-size: 20px 20px
+    &__world
+      width: 100%
+      text-align: center
+    &__time
+      width: 150px
+      text-align: right
+      margin-right: 20px
 
 </style>
