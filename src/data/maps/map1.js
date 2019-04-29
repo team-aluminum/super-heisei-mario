@@ -9,7 +9,7 @@ emp emp emp emp emp emp emp emp emp emp blk blk emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp blk blk blk blk blk emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
+f05 fem fem fem fem emp emp f13 fem fem fem fem fem fem fem fem fem fem fem fem
 `,
   chipMeta: {
     emp: { empty: true },
@@ -22,10 +22,19 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     },
-    f20: {
+    f13: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 20,
+      horizontalGridCount: 13,
+      styles: {
+        backgroundImage: `url(${require('@/assets/stage1/floor.png')})`,
+        backgroundSize: '30px 30px'
+      }
+    },
+    f05: {
+      empty: false,
+      componentName: 'Floor',
+      horizontalGridCount: 5,
       styles: {
         backgroundImage: `url(${require('@/assets/stage1/floor.png')})`,
         backgroundSize: '30px 30px'

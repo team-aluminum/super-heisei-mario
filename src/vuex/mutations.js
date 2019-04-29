@@ -14,20 +14,21 @@ export default {
       y: constants.INITIAL_POSITION.y
     }
     Object.assign(state.player.position.current, {
-      x: initialPosition.x,
-      y: initialPosition.y
+      x: constants.INITIAL_POSITION.x,
+      y: constants.INITIAL_POSITION.y
     })
     Object.assign(state.player.position.previous, {
-      x: initialPosition.x,
-      y: initialPosition.y
+      x: constants.INITIAL_POSITION.x,
+      y: constants.INITIAL_POSITION.y
     })
     Object.assign(state.player.status, {
       life: state.player.status.life - 1,
-      alive: true,
+      alive: false,
       dead: false
     })
   },
   RESTART (state) {
+    state.player.status.alive = true
     Object.assign(state.scene, { current: 'game' })
   },
   FORCE_MOVE_PLAYER (state, { x, y }) {

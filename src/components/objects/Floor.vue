@@ -13,7 +13,7 @@ export default {
         left: `calc(50% + ${left}px)`,
         bottom: this.data.position.y + 'px',
         width: this.data.size.width + 'px',
-        height: this.data.size.height + 'px',
+        height: this.data.size.height + 'px'
       }, this.data.styles)
     },
     ...mapGetters({

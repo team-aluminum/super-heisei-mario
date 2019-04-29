@@ -34,7 +34,7 @@ f16 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem emp emp f02 fem
     f02: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 5,
+      horizontalGridCount: 2,
       styles: {
         backgroundImage: `url(${require('@/assets/stage2/floor.png')})`,
         backgroundSize: '30px 30px'
