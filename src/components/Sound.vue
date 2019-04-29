@@ -5,8 +5,7 @@
     audio#sound-dead(:src="require('@/assets/sounds/smb_mariodie.wav')")
     audio#sound-gameover(:src="require('@/assets/sounds/smb_gameover.wav')")
     audio#sound-clear(:src="require('@/assets/sounds/smb_stage_clear.wav')")
-    audio#bgm-smb(:src="require('@/assets/bgm/01_smb.mp3')")
-
+    audio#bgm-smb(:src="require('@/assets/bgm/01_smb.mp3')" loop)
 </template>
 
 <script>
