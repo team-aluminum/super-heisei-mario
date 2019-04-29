@@ -17,6 +17,14 @@ export default {
         } else {
           backgroundImage = 'mario-right.png'
         }
+      } else if (this.player.status.direction === 'left') {
+        if (this.player.status.floating) {
+          backgroundImage = 'mario-left-jumping.png'
+        } else if (this.player.status.moving) {
+          backgroundImage = 'mario-left-moving.gif'
+        } else {
+          backgroundImage = 'mario-left.png'
+        }
       }
       return {
         bottom: this.player.position.current.y + 'px',
