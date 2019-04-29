@@ -1,6 +1,7 @@
 <template lang="pug">
 .scenes
-  Game.game(v-if="scene.current === 'game'")
+  Starting.starting(v-if="scene.current === 'starting'")
+  Game.game(v-show="scene.current === 'game'")
 </template>
 
 <script>
