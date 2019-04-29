@@ -6,6 +6,9 @@ export default {
   movePlayer ({ commit }, { x, y }) {
     commit('MOVE_PLAYER', { x, y })
   },
+  forceMovePlayer ({ commit }, { x, y }) {
+    commit('FORCE_MOVE_PLAYER', { x, y })
+  },
   setPlayerStatus ({ commit }, status) {
     commit('SET_PLAYER_STATUS', status)
   },

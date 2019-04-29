@@ -18,13 +18,18 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'Block',
       styles: {
-        backgroundColor: 'brown'
+        backgroundImage: `url(${require('@/assets/stage1/block.png')})`,
+        backgroundSize: '30px 30px'
       }
     },
     f20: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 20
+      horizontalGridCount: 20,
+      styles: {
+        backgroundImage: `url(${require('@/assets/stage1/floor.png')})`,
+        backgroundSize: '30px 30px'
+      }
     }
   }
 }

@@ -28,10 +28,10 @@ export default {
     }
   },
   components: {
-    Player: () => import('@/components/Player'),
-    Mountain: () => import('@/components/Mountain'),
-    Block: () => import('@/components/Block'),
-    Floor: () => import('@/components/Floor')
+    Player: () => import('@/components/objects/Player'),
+    Mountain: () => import('@/components/objects/Mountain'),
+    Block: () => import('@/components/objects/Block'),
+    Floor: () => import('@/components/objects/Floor')
   },
   computed: {
     ...mapGetters({
@@ -90,6 +90,9 @@ export default {
             break
           case 'ArrowRight':
             this.$store.dispatch('movePlayer', { x: +7, y: 0 })
+            break
+          case 'd':
+            this.$store.dispatch('addPlayerEvent', 'dead')
             break
         }
       }

@@ -77,6 +77,15 @@ export default {
     },
     dead () {
       this.$store.dispatch('setPlayerStatus', { alive: false })
+      setTimeout(() => {
+        let frameCount = 20
+        const timer = setInterval(() => {
+          if (this.player.position.current.y <= -30) {
+            clearInterval(timer)
+          }
+          this.$store.dispatch('forceMovePlayer', { x: 0, y: 5 * (frameCount-- >= 0 ? 1 : -1) })
+        }, constants.FRAME_RATE)
+      }, 2000)
     }
   }
 }

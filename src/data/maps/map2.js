@@ -24,12 +24,18 @@ f16 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem emp emp f02 fem
     f16: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 16
+      horizontalGridCount: 16,
+      styles: {
+        backgroundSize: '20px 20px'
+      }
     },
     f02: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 5
+      horizontalGridCount: 5,
+      styles: {
+        backgroundSize: '20px 20px'
+      }
     }
   }
 }

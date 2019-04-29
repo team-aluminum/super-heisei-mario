@@ -24,7 +24,10 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
     f20: {
       empty: false,
       componentName: 'Floor',
-      horizontalGridCount: 20
+      horizontalGridCount: 20,
+      styles: {
+        backgroundSize: '20px 20px'
+      }
     }
   }
 }
