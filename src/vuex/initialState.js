@@ -4,8 +4,8 @@ export default {
   },
   screen: {
     size: {
-      width: 800,
-      height: 600
+      width: 400,
+      height: 320
     }
   },
   player: {
