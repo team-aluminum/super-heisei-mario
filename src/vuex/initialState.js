@@ -10,7 +10,7 @@ export default {
   },
   player: {
     status: {
-      life: 5,
+      life: 1,
       alive: true,
       dead: false,
       moving: false,

@@ -35,7 +35,7 @@ export default {
   watch: {
     'player.status': {
       handler () {
-        if (this.player.status.dead) {
+        if (this.player.status.dead && this.player.status.life > 0) {
           this.centerMessage = 'Press R to Restart'
         } else {
           this.centerMessage = ''
