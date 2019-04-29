@@ -24,7 +24,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem emp emp fem fem fem fem fem
       empty: false,
       componentName: 'Block',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage8/block.png')})`,
+        backgroundImage: `url(${require('@/assets/stage8/block.gif')})`,
         backgroundSize: '30px 30px'
       }
     },

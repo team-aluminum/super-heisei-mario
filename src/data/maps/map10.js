@@ -1,5 +1,5 @@
 export default {
-  previousMapName: 'map0',
+  previousMapName: 'map9',
   nextMapName: null,
   chips: `
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
@@ -24,7 +24,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'Block',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage10/block.png')})`,
+        backgroundImage: `url(${require('@/assets/stage10/block.gif')})`,
         backgroundSize: '30px 30px'
       }
     },

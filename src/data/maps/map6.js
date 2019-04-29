@@ -32,7 +32,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'QuestionBlockStar',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage6/question_block.png')})`,
+        backgroundImage: `url(${require('@/assets/stage6/question_block.gif')})`,
         backgroundSize: '30px 30px'
       }
     },
@@ -40,7 +40,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'QuestionBlockCoin',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage6/question_block.png')})`,
+        backgroundImage: `url(${require('@/assets/stage6/question_block.gif')})`,
         backgroundSize: '30px 30px'
       }
     },
@@ -48,7 +48,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'QuestionBlockKinoko',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage6/question_block.png')})`,
+        backgroundImage: `url(${require('@/assets/stage6/question_block.gif')})`,
         backgroundSize: '30px 30px'
       }
     },
