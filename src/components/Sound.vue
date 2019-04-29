@@ -1,11 +1,11 @@
 <template lang="pug">
-  #sounds
-    audio#sound-jump(:src="require('@/assets/sounds/smb_jump-small.wav')")
-    audio#sound-coin(:src="require('@/assets/sounds/smb_coin.wav')")
-    audio#sound-dead(:src="require('@/assets/sounds/smb_mariodie.wav')")
-    audio#sound-gameover(:src="require('@/assets/sounds/smb_gameover.wav')")
-    audio#sound-clear(:src="require('@/assets/sounds/smb_stage_clear.wav')")
-    audio#bgm-smb(:src="require('@/assets/bgm/01_smb.mp3')" loop)
+#sounds
+  audio#sound-jump(:src="require('@/assets/sounds/smb_jump-small.wav')")
+  audio#sound-coin(:src="require('@/assets/sounds/smb_coin.wav')")
+  audio#sound-dead(:src="require('@/assets/sounds/smb_mariodie.wav')")
+  audio#sound-gameover(:src="require('@/assets/sounds/smb_gameover.wav')")
+  audio#sound-clear(:src="require('@/assets/sounds/smb_stage_clear.wav')")
+  audio#bgm-smb(:src="require('@/assets/bgm/01_smb.mp3')" loop)
 </template>
 
 <script>
@@ -46,18 +46,18 @@ export default {
     }
   },
   methods: {
-    playSound: function (id) {
+    playSound (id) {
       const audio = document.getElementById('sound-' + id)
       audio.currentTime = 0
       audio.play()
     },
-    playBgm: function (id) {
+    playBgm (id) {
       this.currentBgmId = 'bgm-' + id
       const audio = document.getElementById(this.currentBgmId)
       audio.currentTime = 0
       audio.play()
     },
-    stopBgm: function () {
+    stopBgm () {
       const audio = document.getElementById(this.currentBgmId)
       audio.pause()
     }

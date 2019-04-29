@@ -14,7 +14,7 @@ export default {
     Hud: () => import('@/components/Hud'),
     Game: () => import('@/components/scenes/Game'),
     Starting: () => import('@/components/scenes/Starting'),
-    Sound: () => import('@/components/Sound'),
+    Sound: () => import('@/components/Sound')
   },
   computed: {
     screenStyle () {
