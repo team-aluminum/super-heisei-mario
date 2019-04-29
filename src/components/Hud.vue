@@ -1,7 +1,6 @@
 <template lang="pug">
-.hud
+.hud(:class="{'-whiteText': scene.current === 'starting'}")
   .hud__center(v-show="centerMessage.length > 0") {{ centerMessage }}
-  .hud__jumping(v-show="player.status.floating")
   .hud__life
     .hud__lifeIcon(:style="{}")
     .hud__lifeCount ×{{ player.status.life }}
@@ -17,7 +16,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      player: 'getPlayer'
+      player: 'getPlayer',
+      scene: 'getScene'
     })
   },
   watch: {
@@ -42,6 +42,8 @@ export default {
   height: 100%
   z-index: 1000
   top: 0
+  &.-whiteText
+    color: white
   &__center
     position: absolute
     top: 0
@@ -71,10 +73,4 @@ export default {
       vertical-align: 2px
       font-size: 18px
       font-weight: bold
-  &__jumping
-    top: 0
-    left: 0
-    height: 50px
-    width: 50px
-    background-color: red
 </style>

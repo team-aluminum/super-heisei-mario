@@ -27,7 +27,6 @@ export default {
     }
   },
   components: {
-    Hud: () => import('@/components/Hud'),
     Player: () => import('@/components/objects/Player'),
     Mountain: () => import('@/components/objects/Mountain'),
     Block: () => import('@/components/objects/Block'),
