@@ -92,10 +92,14 @@ export default {
             break
         }
       } else if (this.playerDead) {
-        switch (this.inputtingKey) {
-          case 'r':
-            this.$store.dispatch('setScene', { current: 'starting' })
-            break
+        if (this.player.status.life > 0) {
+          switch (this.inputtingKey) {
+            case 'r':
+              this.$store.dispatch('setScene', { current: 'starting' })
+              break
+          }
+        } else {
+          this.$store.dispatch('setScene', { current: 'starting' })
         }
       }
     },
