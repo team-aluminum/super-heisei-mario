@@ -1,32 +1,38 @@
 export default {
-  previousMapName: 'map2',
-  nextMapName: 'map4',
+  previousMapName: 'map4',
+  nextMapName: 'map6',
   chips: `
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+blk blk blk blk blk blk blk emp emp emp blk blk blk qbc emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp blk emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp fem fem emp emp emp emp emp emp emp emp emp fem fem emp
-emp emp emp emp emp emp fem fem emp emp emp emp emp emp emp emp emp fem fem emp
-emp emp emp emp emp emp fem fem emp emp emp emp emp emp emp emp emp fem fem emp
-emp emp emp emp emp emp p04 fem emp emp emp emp emp emp emp emp emp p04 fem emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
 `,
   chipMeta: {
     emp: { empty: true },
     fem: { empty: true },
-    p04: {
+    blk: {
       empty: false,
-      componentName: 'Pipe',
-      horizontalGridCount: 2,
-      verticalGridCount: 4,
+      componentName: 'Block',
       styles: {
-        backgroundImage: `url(${require('@/assets/stage3/pipe_4.png')})`,
+        backgroundImage: `url(${require('@/assets/stage5/block.png')})`,
+        backgroundSize: '30px 30px'
+      }
+    },
+    qbc: {
+      empty: false,
+      componentName: 'QuestionBlockCoin',
+      styles: {
+        backgroundImage: `url(${require('@/assets/stage5/question_block.png')})`,
         backgroundSize: '30px 30px'
       }
     },
@@ -35,7 +41,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       componentName: 'Floor',
       horizontalGridCount: 19,
       styles: {
-        backgroundImage: `url(${require('@/assets/stage3/floor.png')})`,
+        backgroundImage: `url(${require('@/assets/stage5/floor.png')})`,
         backgroundSize: '30px 30px'
       }
     }

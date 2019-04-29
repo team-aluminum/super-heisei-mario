@@ -1,7 +1,6 @@
 export default {
   previousMapName: null,
   nextMapName: 'map2',
-  floor: 'floor1',
   chips: `
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
@@ -16,7 +15,6 @@ emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp qbc emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
 f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
 `,
   chipMeta: {
@@ -34,7 +32,7 @@ f19 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'QuestionBlockCoin',
       styles: {
-        backgroundImage: ``,
+        backgroundImage: `url(${require('@/assets/stage1/question_block.png')})`,
         backgroundSize: '30px 30px'
       }
     },
