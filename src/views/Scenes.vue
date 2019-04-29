@@ -4,6 +4,7 @@
     Starting.starting(v-if="scene.current === 'starting'")
     Game.game(v-show="scene.current === 'game'")
     Hud
+    Sound
 </template>
 
 <script>
@@ -12,7 +13,8 @@ export default {
   components: {
     Hud: () => import('@/components/Hud'),
     Game: () => import('@/components/scenes/Game'),
-    Starting: () => import('@/components/scenes/Starting')
+    Starting: () => import('@/components/scenes/Starting'),
+    Sound: () => import('@/components/Sound'),
   },
   computed: {
     screenStyle () {
