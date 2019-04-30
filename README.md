@@ -12,8 +12,6 @@
   * [yutarou obuchi](https://github.com/utrow)
   * [yu ishiguro](https://github.com/yuuis)
 
-## screen shots
-
 ## presentation
 ![presen_images 001](https://user-images.githubusercontent.com/31527437/56940124-525a2400-6b47-11e9-80e9-d43535abeab6.png)
 ![presen_images 002](https://user-images.githubusercontent.com/31527437/56940123-525a2400-6b47-11e9-8ed5-0445e487a433.png)
@@ -33,6 +31,12 @@
 ![presen_images 016](https://user-images.githubusercontent.com/31527437/56940109-50906080-6b47-11e9-9cca-42ab13e8eba3.png)
 ![presen_images 017](https://user-images.githubusercontent.com/31527437/56940108-4ff7ca00-6b47-11e9-90b3-c129ebbd764e.png)
 ![presen_images 018](https://user-images.githubusercontent.com/31527437/56940107-4ff7ca00-6b47-11e9-96d1-ed528c7c485e.png)
+
+## screen shots
+  * ![Screen Shot 2019-04-30 at 15 45 30](https://user-images.githubusercontent.com/31527437/56945020-83931e00-6b60-11e9-9825-600455b757b0.png)
+  * ![Screen Shot 2019-04-30 at 15 46 54](https://user-images.githubusercontent.com/31527437/56945023-868e0e80-6b60-11e9-9c48-217480b26d8e.png)
+  * ![Screen Shot 2019-04-30 at 15 47 29](https://user-images.githubusercontent.com/31527437/56945026-88f06880-6b60-11e9-886a-fa22dbb8b84a.png)
+  * ![Screen Shot 2019-04-30 at 15 48 16](https://user-images.githubusercontent.com/31527437/56945030-8c83ef80-6b60-11e9-936a-acfc63a3d6d2.png)
 
 ## how to build
 ```sh
