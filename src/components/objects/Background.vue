@@ -26,7 +26,7 @@ export default {
   background-image: url('~@/assets/object/bg.png')
   background-size: cover
   height: 100%
-  width: 1000px
+  width: 6600px
   top: 0
-  background-size: cover
+  background-size: auto 100%
 </style>
