@@ -119,9 +119,9 @@ export default {
             this.$store.dispatch('setPlayerStatus', { dead: true })
             clearInterval(timer)
           }
-          this.$store.dispatch('forceMovePlayer', { x: 0, y: 5 * (frameCount-- >= 0 ? 1 : -1) })
+          this.$store.dispatch('forceMovePlayer', { x: 0, y: 4 * (frameCount-- >= 0 ? 1 : -1) })
         }, constants.FRAME_RATE)
-      }, 2000)
+      }, 500)
     }
   }
 }

@@ -32,6 +32,11 @@ export default {
       }, 3000)
     } else {
       this.gameover = true
+      document.addEventListener('keydown', e => {
+        if (e.key === ' ') {
+          this.$router.push('/?reload=true')
+        }
+      })
     }
   }
 }
