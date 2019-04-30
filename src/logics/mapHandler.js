@@ -20,7 +20,16 @@ export default async (mapName, offset, objectAdditional) => {
         if (chipMeta.componentName === 'HardBlock') {
           hardBlockHandler(mapData, chip, offset, gy, gx)
         }
+        if (chipMeta.componentName === 'QuestionBlock1Up') {
+          questionBlockHandler(mapData, chip, offset, gy, gx)
+        }
         if (chipMeta.componentName === 'QuestionBlockCoin') {
+          questionBlockHandler(mapData, chip, offset, gy, gx)
+        }
+        if (chipMeta.componentName === 'QuestionBlockKinoko') {
+          questionBlockHandler(mapData, chip, offset, gy, gx)
+        }
+        if (chipMeta.componentName === 'QuestionBlockStar') {
           questionBlockHandler(mapData, chip, offset, gy, gx)
         }
         if (chipMeta.componentName === 'Floor') {
