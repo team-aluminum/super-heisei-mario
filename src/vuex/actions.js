@@ -51,6 +51,9 @@ export default {
   setMap ({ commit }, map) {
     commit('SET_MAP', map)
   },
+  setScreen ({ commit }, map) {
+    commit('SET_SCREEN', map)
+  },
   moveToNextMap ({ commit }) {
     commit('MOVE_TO_NEXT_MAP')
   },

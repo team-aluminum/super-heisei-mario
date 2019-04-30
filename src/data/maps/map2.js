@@ -73,5 +73,16 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     }
+  },
+  gameHard: {
+    'background-image': `url(${require('@/assets/hardwares/0_gb.png')})`,
+    'background-size': '815px',
+    'background-position-y': 'calc(50% + 290px)'
+  },
+  screen: {
+    size: {
+      width: 400,
+      height: 362
+    }
   }
 }

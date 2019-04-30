@@ -59,8 +59,10 @@ export default {
         edgesPositions: Object.assign(
           this.map.edgesPositions,
           { next: { left: data.mapWidth } }
-        )
+        ),
+        gameHard: data.gameHard
       })
+      this.$store.dispatch('setScreen', data.screen)
     })
     mapHandler(this.map.nextName, 'next', true)
     this.$store.dispatch('addBackground', {

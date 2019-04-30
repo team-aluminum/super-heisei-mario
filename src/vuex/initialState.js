@@ -5,7 +5,7 @@ export default {
   screen: {
     size: {
       width: 400,
-      height: 320
+      height: 360
     }
   },
   player: {
@@ -60,7 +60,8 @@ export default {
       previous: { left: 0 },
       current: { left: 0 },
       next: { left: 0 }
-    }
+    },
+    gameHard: null
   },
   sound: {
     events: []
