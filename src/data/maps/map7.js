@@ -80,5 +80,16 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     }
+  },
+  gameHard: {
+    'background-image': 'url(' + require('@/assets/hardwares/7_wii_hands.png') + '), url(' + require('@/assets/hardwares/7_wii.png') + ')',
+    'background-size': '1500px, 1182px',
+    'background-position': 'calc(50% + 10px) bottom, calc(50%) calc(50% + 31px)'
+  },
+  screen: {
+    size: {
+      width: 800,
+      height: 440
+    }
   }
 }

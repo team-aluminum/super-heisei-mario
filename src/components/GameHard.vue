@@ -15,8 +15,7 @@ export default {
 
 <style lang="stylus">
 #game-hard-image
-  opacity: 0.5
-  transition: 1s ease;
+  transition: 0.5s ease;
   width: 100%
   height:100%
   position: fixed
@@ -24,5 +23,4 @@ export default {
   left: 0
   background-position: center
   background-repeat: no-repeat
-  background-size: 600px
 </style>

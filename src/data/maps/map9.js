@@ -65,5 +65,16 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     }
+  },
+  gameHard: {
+    'background-image': `url(${require('@/assets/hardwares/8_switch_body.png')})`,
+    'background-size': '1385px',
+    'background-position': 'calc(50%) calc(50% - 2px)'
+  },
+  screen: {
+    size: {
+      width: 786,
+      height: 440
+    }
   }
 }

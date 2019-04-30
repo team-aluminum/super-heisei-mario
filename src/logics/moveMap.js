@@ -11,6 +11,7 @@ export const moveToPreviousMap = async (state) => {
       }),
       gameHard: data.gameHard
     })
+    Object.assign(state.screen, data.screen)
   })
   Object.assign(state.things, {
     previousMap: { objects: [], backgrounds: [] },
@@ -38,6 +39,7 @@ export const moveToNextMap = async (state) => {
       },
       gameHard: data.gameHard
     })
+    Object.assign(state.screen, data.screen)
   })
   Object.assign(state.things, {
     previousMap: state.things.currentMap,

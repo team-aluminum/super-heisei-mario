@@ -5,7 +5,7 @@ export default {
   screen: {
     size: {
       width: 400,
-      height: 320
+      height: 360
     }
   },
   player: {

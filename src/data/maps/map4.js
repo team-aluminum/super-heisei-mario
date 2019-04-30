@@ -53,5 +53,16 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
         backgroundSize: '30px 30px'
       }
     }
+  },
+  gameHard: {
+    'background-image': `url(${require('@/assets/hardwares/2_gba.png')})`,
+    'background-size': '1360px',
+    'background-position': 'calc(50% + 6px) calc(50% + 28px)'
+  },
+  screen: {
+    size: {
+      width: 540,
+      height: 360
+    }
   }
 }

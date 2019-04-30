@@ -42,11 +42,13 @@ export default {
   position: relative
   overflow: hidden
   &__screen
-    border: 1px solid black
+    /*border: 1px solid black*/
     position: absolute
     top: 0
     left: 0
     right: 0
     bottom: 0
     margin: auto
+    transition: 0.5s ease
+    overflow: hidden
 </style>

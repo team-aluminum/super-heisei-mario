@@ -41,7 +41,14 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
     }
   },
   gameHard: {
-    'background-image': 'url(' + require('@/assets/hardwares/7_wii.png') + '), url(' + require('@/assets/hardwares/7_wii_hands.png') + ')',
-    'background-position': 'center, center bottom'
+    'background-image': `url(${require('@/assets/hardwares/1_gbc.png')})`,
+    'background-size': '790px',
+    'background-position-y': 'calc(50% + 330px)'
+  },
+  screen: {
+    size: {
+      width: 400,
+      height: 360
+    }
   }
 }

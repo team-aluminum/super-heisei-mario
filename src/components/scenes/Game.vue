@@ -60,6 +60,7 @@ export default {
         ),
         gameHard: data.gameHard
       })
+      this.$store.dispatch('setScreen', data.screen)
     })
     mapHandler(this.map.nextName, 'next', true)
     this.drawTimer = setInterval(() => { this.draw() }, constants.FRAME_RATE)

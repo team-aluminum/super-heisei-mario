@@ -27,7 +27,8 @@ export default async (mapName, offset, objectAdditional) => {
     mapWidth: mapHorizontalGridCount * constants.GRID_LENGTH,
     previousName: mapData.previousMapName,
     nextName: mapData.nextMapName,
-    gameHard: mapData.gameHard
+    gameHard: mapData.gameHard,
+    screen: mapData.screen
   }
 }
 

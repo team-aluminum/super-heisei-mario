@@ -114,6 +114,9 @@ export default {
   SET_MAP (state, map) {
     Object.assign(state.map, map)
   },
+  SET_SCREEN (state, screen) {
+    Object.assign(state.screen, screen)
+  },
   MOVE_TO_NEXT_MAP (state) {
     moveToNextMap(state)
   },
