@@ -2,6 +2,7 @@ export default (state, { x, y }) => {
   const currentPosition = Object.assign({}, state.player.position.current)
   const playerSize = Object.assign({}, state.player.size)
   const supposedPosition = { x: currentPosition.x + x, y: currentPosition.y + y }
+  const initialSupposedPosition = { x: currentPosition.x + x, y: currentPosition.y + y }
   const currentEdgesPosition = {
     leftX: currentPosition.x - (playerSize.width / 2),
     rightX: currentPosition.x + (playerSize.width / 2),
@@ -107,6 +108,11 @@ export default (state, { x, y }) => {
         } else {
           state.player.events.push('dead')
         }
+      } else if (collidingObject.data.type === 'flag') {
+        supposedPosition.x = initialSupposedPosition.x + 10
+        supposedPosition.y = initialSupposedPosition.y
+        state.player.events.push('stopJump')
+        state.player.events.push('goal')
       }
     })
   }

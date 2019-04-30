@@ -118,7 +118,8 @@ const flagHandler = (mapData, chip, offset, gy, gx) => {
       data: {
         position: { x: gx * constants.GRID_LENGTH, y: gy * constants.GRID_LENGTH },
         size: { width: constants.GRID_LENGTH * chipMeta.verticalGridCount, height: chipMeta.horizontalGridCount * constants.GRID_LENGTH },
-        styles: chipMeta.styles
+        styles: chipMeta.styles,
+        type: 'flag'
       }
     }
   })

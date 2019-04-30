@@ -83,14 +83,14 @@ export default {
     })
     this.drawTimer = setInterval(() => { this.draw() }, constants.FRAME_RATE)
 
-    this.$store.dispatch('addCreature', {
-      component: 'Goomba',
-      data: {
-        position: { x: 300, y: 30 },
-        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
-        type: 'creature'
-      }
-    })
+    // this.$store.dispatch('addCreature', {
+    //   component: 'Goomba',
+    //   data: {
+    //     position: { x: 300, y: 30 },
+    //     size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+    //     type: 'creature'
+    //   }
+    // })
   },
   methods: {
     keydown (e) {
@@ -113,7 +113,8 @@ export default {
       }
     },
     handleKey () {
-      if (this.playerAlive) {
+      if (this.player.status.goal) {
+      } else if (this.playerAlive) {
         switch (this.inputtingKey) {
           case 'ArrowLeft':
             this.$store.dispatch('movePlayer', { x: -7, y: 0 })
@@ -139,7 +140,7 @@ export default {
     },
     draw () {
       this.handleKey()
-      if (this.playerAlive) {
+      if (this.playerAlive && !this.player.status.goal) {
         this.$store.dispatch('movePlayer', { x: 0, y: -4 })
       }
 
