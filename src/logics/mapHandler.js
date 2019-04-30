@@ -32,6 +32,9 @@ export default async (mapName, offset, objectAdditional) => {
         if (chipMeta.componentName === 'QuestionBlockStar') {
           questionBlockHandler(mapData, chip, offset, gy, gx)
         }
+        if (chipMeta.componentName === 'Pipe') {
+          pipeHandler(mapData, chip, offset, gy, gx)
+        }
         if (chipMeta.componentName === 'Floor') {
           floorHandler(mapData, chip, offset, gy, gx)
         }
@@ -82,6 +85,20 @@ const questionBlockHandler = (mapData, chip, offset, gy, gx) => {
       data: {
         position: { x: gx * constants.GRID_LENGTH, y: gy * constants.GRID_LENGTH },
         size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+        styles: chipMeta.styles
+      }
+    }
+  })
+}
+const pipeHandler = (mapData, chip, offset, gy, gx) => {
+  const chipMeta = mapData.chipMeta[chip]
+  store.dispatch('addObject', {
+    offset,
+    object: {
+      component: chipMeta.componentName,
+      data: {
+        position: { x: gx * constants.GRID_LENGTH, y: gy * constants.GRID_LENGTH },
+        size: { width: constants.GRID_LENGTH * chipMeta.horizontalGridCount, height: constants.GRID_LENGTH * chipMeta.verticalGridCount },
         styles: chipMeta.styles
       }
     }

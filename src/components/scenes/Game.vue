@@ -39,6 +39,7 @@ export default {
     QuestionBlockCoin: () => import('@/components/objects/QuestionBlockCoin'),
     QuestionBlockKinoko: () => import('@/components/objects/QuestionBlockKinoko'),
     QuestionBlockStar: () => import('@/components/objects/QuestionBlockStar'),
+    Pipe: () => import('@/components/objects/Pipe'),
     Floor: () => import('@/components/objects/Floor'),
     Background: () => import('@/components/objects/Background'),
     Goomba: () => import('@/components/creatures/Goomba')
