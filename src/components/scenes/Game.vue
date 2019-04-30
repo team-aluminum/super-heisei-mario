@@ -83,14 +83,30 @@ export default {
     })
     this.drawTimer = setInterval(() => { this.draw() }, constants.FRAME_RATE)
 
-    // this.$store.dispatch('addCreature', {
-    //   component: 'Goomba',
-    //   data: {
-    //     position: { x: 300, y: 30 },
-    //     size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
-    //     type: 'creature'
-    //   }
-    // })
+    this.$store.dispatch('addCreature', {
+      component: 'Goomba',
+      data: {
+        position: { x: 500, y: 30 },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+        type: 'creature'
+      }
+    })
+    this.$store.dispatch('addCreature', {
+      component: 'Goomba',
+      data: {
+        position: { x: 2300, y: 30 },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+        type: 'creature'
+      }
+    })
+    this.$store.dispatch('addCreature', {
+      component: 'Goomba',
+      data: {
+        position: { x: 4000, y: 30 },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+        type: 'creature'
+      }
+    })
   },
   methods: {
     keydown (e) {
@@ -117,10 +133,10 @@ export default {
       } else if (this.playerAlive) {
         switch (this.inputtingKey) {
           case 'ArrowLeft':
-            this.$store.dispatch('movePlayer', { x: -7, y: 0 })
+            this.$store.dispatch('movePlayer', { x: -5, y: 0 })
             break
           case 'ArrowRight':
-            this.$store.dispatch('movePlayer', { x: +7, y: 0 })
+            this.$store.dispatch('movePlayer', { x: +5, y: 0 })
             break
           case 'd':
             this.$store.dispatch('addPlayerEvent', 'dead')
