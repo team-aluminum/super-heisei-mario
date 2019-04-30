@@ -15,7 +15,8 @@ export default {
       dead: false,
       moving: false,
       floating: false,
-      direction: 'right'
+      direction: 'right',
+      goal: false
     },
     position: {
       current: {

@@ -14,7 +14,7 @@ emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp qbc emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
+emp emp emp emp emp emp emp emp emp emp emp emp emp emp flg emp emp emp emp emp
 f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
 `,
   chipMeta: {
@@ -43,6 +43,16 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       styles: {
         backgroundImage: `url(${require('@/assets/stage1/floor.png')})`,
         backgroundSize: '30px 30px'
+      }
+    },
+    flg: {
+      empty: false,
+      componentName: 'Flag',
+      horizontalGridCount: 8,
+      verticalGridCount: 1,
+      styles: {
+        backgroundImage: `url(${require('@/assets/stage10/falg.png')})`,
+        backgroundSize: 'contain'
       }
     }
   },
