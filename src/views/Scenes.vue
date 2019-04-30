@@ -41,8 +41,8 @@ export default {
   min-width: 800px
   position: relative
   overflow: hidden
+  background-image: url('~@/assets/appBackgrounds/yellow_bg.png')
   &__screen
-    /*border: 1px solid black*/
     position: absolute
     top: 0
     left: 0
