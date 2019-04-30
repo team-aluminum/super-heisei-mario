@@ -35,7 +35,10 @@ export default {
     Mountain: () => import('@/components/objects/Mountain'),
     Block: () => import('@/components/objects/Block'),
     HardBlock: () => import('@/components/objects/HardBlock'),
+    QuestionBlock1Up: () => import('@/components/objects/QuestionBlock1Up'),
     QuestionBlockCoin: () => import('@/components/objects/QuestionBlockCoin'),
+    QuestionBlockKinoko: () => import('@/components/objects/QuestionBlockKinoko'),
+    QuestionBlockStar: () => import('@/components/objects/QuestionBlockStar'),
     Floor: () => import('@/components/objects/Floor'),
     Background: () => import('@/components/objects/Background'),
     Goomba: () => import('@/components/creatures/Goomba')
