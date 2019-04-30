@@ -9,7 +9,9 @@ export default {
   computed: {
     playerStyle () {
       let backgroundImage = 'mario-right.png'
-      if (!this.player.status.alive && !this.player.status.dead) {
+      if (this.player.status.goal) {
+        backgroundImage = 'mario-goal.png'
+      } else if (!this.player.status.alive && !this.player.status.dead) {
         backgroundImage = 'mario-dead.png'
       } else if (this.player.status.direction === 'right') {
         if (this.player.status.floating) {
@@ -56,6 +58,9 @@ export default {
       }
       if (this.player.events.indexOf('smallJump') >= 0) {
         this.smallJump()
+      }
+      if (this.player.events.indexOf('goal') >= 0) {
+        this.goal()
       }
       if (this.player.events.length > 0) {
         this.$store.dispatch('clearPlayerEvent')
@@ -122,6 +127,9 @@ export default {
           this.$store.dispatch('forceMovePlayer', { x: 0, y: 4 * (frameCount-- >= 0 ? 1 : -1) })
         }, constants.FRAME_RATE)
       }, 500)
+    },
+    goal () {
+      this.$store.dispatch('setPlayerStatus', { goal: true })
     }
   }
 }
