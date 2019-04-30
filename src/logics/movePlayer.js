@@ -16,7 +16,10 @@ export default (state, { x, y }) => {
 
   const collidingObjects = targetObjects.filter(object => {
     const objectPosition = {
-      x: object.data.position.x + state.map.edgesPositions.current.left,
+      x: object.data.position.x + (
+        object.data.type === 'creature' ?
+          0: state.map.edgesPositions.current.left
+      ),
       y: object.data.position.y
     }
     const objectSize = object.data.size
@@ -91,6 +94,7 @@ export default (state, { x, y }) => {
       }
 
       if (collidingObject.data.type === 'creature') {
+        console.log(collidingObject)
         if (currentSidesRelativeToCollidingObject.top) {
           const creatureId = collidingObject.id
           const creatureIndex = state.creatures.findIndex(c => c.id === creatureId)
