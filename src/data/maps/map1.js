@@ -53,8 +53,8 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
   },
   screen: {
     size: {
-      width: 402,
-      height: 360
+      width: 400,
+      height: 362
     }
   }
 }
