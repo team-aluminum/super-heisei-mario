@@ -13,7 +13,7 @@ export default {
   created () {
     setTimeout(() => {
       this.goalScreenView = true
-    }, 4500)
+    }, 6200)
   }
 }
 </script>

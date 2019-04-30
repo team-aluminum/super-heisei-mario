@@ -46,6 +46,15 @@ export default {
       },
       deep: true
     },
+    'player.status.goal': {
+      handler () {
+        this.stopBgm()
+        setTimeout(() => {
+          this.playSound('clear')
+        }, 500)
+      },
+      deep: true
+    },
     'sound.events': {
       handler () {
         if (this.sound.events.indexOf('stomp') >= 0) {
