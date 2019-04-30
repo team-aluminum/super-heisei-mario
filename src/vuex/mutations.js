@@ -72,14 +72,7 @@ export default {
       state.things.nextMap.objects.push(object)
     }
   },
-  ADD_BACKGROUND (state, { background, offset = 'current' }) {
-    if (offset === 'current') {
-      state.things.currentMap.backgrounds.push(background)
-    } else if (offset === 'previous') {
-      state.things.previousMap.backgrounds.push(background)
-    } else if (offset === 'next') {
-      state.things.nextMap.backgrounds.push(background)
-    }
+  ADD_BACKGROUND (state, { object }) {
   },
 
   ADD_CREATURE (state, creature) {
