@@ -110,8 +110,8 @@ export default (state, { x, y }) => {
     })
   }
 
-  if (supposedPosition.x < 0) {
-    supposedPosition.x = 0
+  if (supposedPosition.x < 200) {
+    supposedPosition.x = 200
   }
   if (supposedPosition.y < currentPosition.y) {
     state.player.status.floating = true
