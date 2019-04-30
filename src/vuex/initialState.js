@@ -61,5 +61,8 @@ export default {
       current: { left: 0 },
       next: { left: 0 }
     }
+  },
+  sound: {
+    events: []
   }
 }

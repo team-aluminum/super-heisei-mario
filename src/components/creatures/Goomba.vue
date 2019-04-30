@@ -43,6 +43,7 @@ export default {
         if (this.data.dead) {
           clearInterval(this.timer)
           this.$store.dispatch('addPlayerEvent', 'smallJump')
+          this.$store.dispatch('addSoundEvent', 'stomp')
           setTimeout(() => {
             this.$store.dispatch('defeatCreature', this.creatureId)
           }, 300)

@@ -113,5 +113,12 @@ export default {
   },
   MOVE_TO_PREVIOUS_MAP (state) {
     moveToPreviousMap(state)
+  },
+
+  ADD_SOUND_EVENT (state, eventName) {
+    state.sound.events.push(eventName)
+  },
+  CLEAR_SOUND_EVENTS (state) {
+    state.sound.events = []
   }
 }

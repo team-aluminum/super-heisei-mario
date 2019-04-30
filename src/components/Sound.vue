@@ -5,6 +5,7 @@
   audio#sound-dead(:src="require('@/assets/sounds/smb_mariodie.wav')")
   audio#sound-gameover(:src="require('@/assets/sounds/smb_gameover.wav')")
   audio#sound-clear(:src="require('@/assets/sounds/smb_stage_clear.wav')")
+  audio#sound-stomp(:src="require('@/assets/sounds/smb3_stomp.wav')")
   audio#bgm-smb(:src="require('@/assets/bgm/01_smb.mp3')" loop)
 </template>
 
@@ -23,7 +24,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      player: 'getPlayer'
+      player: 'getPlayer',
+      sound: 'getSound'
     })
   },
   watch: {
@@ -40,6 +42,17 @@ export default {
           setTimeout(() => {
             this.playBgm('smb')
           }, 500)
+        }
+      },
+      deep: true
+    },
+    'sound.events': {
+      handler () {
+        if (this.sound.events.indexOf('stomp') >= 0) {
+          this.playSound('stomp')
+        }
+        if (this.sound.events.length > 0) {
+          this.$store.dispatch('clearSoundEvents')
         }
       },
       deep: true

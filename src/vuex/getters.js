@@ -29,5 +29,8 @@ export default {
   },
   getMap (state) {
     return state.map
+  },
+  getSound (state) {
+    return state.sound
   }
 }

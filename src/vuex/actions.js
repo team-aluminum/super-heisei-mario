@@ -56,5 +56,12 @@ export default {
   },
   moveToPreviousMap ({ commit }) {
     commit('MOVE_TO_PREVIOUS_MAP')
+  },
+
+  addSoundEvent ({ commit }, eventName) {
+    commit('ADD_SOUND_EVENT', eventName)
+  },
+  clearSoundEvents ({ commit }) {
+    commit('CLEAR_SOUND_EVENTS')
   }
 }
