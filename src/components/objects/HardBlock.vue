@@ -19,9 +19,6 @@ export default {
     ...mapGetters({
       player: 'getPlayer'
     })
-  },
-  async created () {
-    console.log('aaaaaa')
   }
 }
 </script>

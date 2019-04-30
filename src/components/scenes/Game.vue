@@ -41,6 +41,7 @@ export default {
     QuestionBlockStar: () => import('@/components/objects/QuestionBlockStar'),
     Pipe: () => import('@/components/objects/Pipe'),
     Floor: () => import('@/components/objects/Floor'),
+    Flag: () => import('@/components/objects/Flag'),
     Background: () => import('@/components/objects/Background'),
     Goomba: () => import('@/components/creatures/Goomba')
   },

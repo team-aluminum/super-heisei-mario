@@ -1,5 +1,5 @@
 <template lang="pug">
-.floor(:style="selfStyle")
+.pipe(:style="selfStyle")
 </template>
 
 <script>
@@ -24,7 +24,6 @@ export default {
 </script>
 
 <style lang="stylus">
-.floor
+.pipe
   position: absolute
-  background-color: green
 </style>
