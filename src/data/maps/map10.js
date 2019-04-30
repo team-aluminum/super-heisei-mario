@@ -104,7 +104,7 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       empty: false,
       componentName: 'Flag',
       horizontalGridCount: 8,
-      verticalGridCount: 2,
+      verticalGridCount: 1,
       styles: {
         backgroundImage: `url(${require('@/assets/stage10/falg.png')})`,
         backgroundSize: 'contain'
