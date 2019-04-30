@@ -14,7 +14,7 @@ export const moveToPreviousMap = async (state) => {
     Object.assign(state.screen, data.screen)
   })
   Object.assign(state.things, {
-    previousMap: { objects: [], backgrounds: [] },
+    previousMap: { objects: [] },
     currentMap: state.things.previousMap,
     nextMap: state.things.currentMap
   })
@@ -44,7 +44,7 @@ export const moveToNextMap = async (state) => {
   Object.assign(state.things, {
     previousMap: state.things.currentMap,
     currentMap: state.things.nextMap,
-    nextMap: { objects: [], backgrounds: [] }
+    nextMap: { objects: [] }
   })
   if (state.map.nextName !== null) {
     mapHandler(state.map.nextName, 'next', true)

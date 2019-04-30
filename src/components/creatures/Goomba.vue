@@ -10,7 +10,7 @@ export default {
   computed: {
     selfStyle () {
       const left = this.data.position.x - this.player.position.current.x
-      const backgroundImage = 'first.gif'
+      const backgroundImage = this.data.dead ? 'goomba-dead.png' : 'first.gif'
       return Object.assign({
         width: this.data.size.width + 'px',
         height: this.data.size.height + 'px',
@@ -28,9 +28,6 @@ export default {
       timer: 0
     }
   },
-  beforeDestroy () {
-    clearInterval(this.timer)
-  },
   created () {
     this.timer = setInterval(() => {
       this.$store.dispatch('moveCreature', {
@@ -44,8 +41,12 @@ export default {
     data: {
       handler () {
         if (this.data.dead) {
-          this.$store.dispatch('defeatCreature', this.creatureId)
+          clearInterval(this.timer)
           this.$store.dispatch('addPlayerEvent', 'smallJump')
+          this.$store.dispatch('addSoundEvent', 'stomp')
+          setTimeout(() => {
+            this.$store.dispatch('defeatCreature', this.creatureId)
+          }, 300)
         }
       },
       deep: true

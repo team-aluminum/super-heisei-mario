@@ -13,11 +13,13 @@ export default {
     }
   },
   getBackgrounds (state) {
-    return [].concat(
-      state.things.previousMap.backgrounds,
-      state.things.currentMap.backgrounds,
-      state.things.nextMap.backgrounds
-    )
+    return {
+      component: 'background',
+      data: {
+        position: { x: 0, y: 0 },
+        size: { width: 100, hright: 1000 }
+      }
+    }
   },
   getScreen (state) {
     return state.screen
@@ -27,5 +29,8 @@ export default {
   },
   getMap (state) {
     return state.map
+  },
+  getSound (state) {
+    return state.sound
   }
 }

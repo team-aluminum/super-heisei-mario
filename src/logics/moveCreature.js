@@ -1,4 +1,4 @@
-export default (state, { x, y }) => {
+export default (state, { creatureId, x, y }) => {
   const currentPosition = Object.assign({}, state.player.position.current)
   const playerSize = Object.assign({}, state.player.size)
   const supposedPosition = { x: currentPosition.x + x, y: currentPosition.y + y }
@@ -110,8 +110,8 @@ export default (state, { x, y }) => {
     })
   }
 
-  if (supposedPosition.x < 200) {
-    supposedPosition.x = 200
+  if (supposedPosition.x < 0) {
+    supposedPosition.x = 0
   }
   if (supposedPosition.y < currentPosition.y) {
     state.player.status.floating = true

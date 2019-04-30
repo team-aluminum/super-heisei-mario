@@ -1,4 +1,5 @@
 import movePlayer from '@/logics/movePlayer'
+// import moveCreature from '@/logics/moveCreature'
 import { moveToPreviousMap, moveToNextMap } from '@/logics/moveMap'
 import constants from '@/constants'
 export default {
@@ -71,14 +72,7 @@ export default {
       state.things.nextMap.objects.push(object)
     }
   },
-  ADD_BACKGROUND (state, { background, offset = 'current' }) {
-    if (offset === 'current') {
-      state.things.currentMap.backgrounds.push(background)
-    } else if (offset === 'previous') {
-      state.things.previousMap.backgrounds.push(background)
-    } else if (offset === 'next') {
-      state.things.nextMap.backgrounds.push(background)
-    }
+  ADD_BACKGROUND (state, { object }) {
   },
 
   ADD_CREATURE (state, creature) {
@@ -122,5 +116,12 @@ export default {
   },
   MOVE_TO_PREVIOUS_MAP (state) {
     moveToPreviousMap(state)
+  },
+
+  ADD_SOUND_EVENT (state, eventName) {
+    state.sound.events.push(eventName)
+  },
+  CLEAR_SOUND_EVENTS (state) {
+    state.sound.events = []
   }
 }

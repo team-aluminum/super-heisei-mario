@@ -9,6 +9,9 @@ export default {
     document.addEventListener('keydown', () => {
       this.$router.push('/playing')
     })
+    if (this.$route.query.reload) {
+      location.href = '/'
+    }
   }
 }
 </script>

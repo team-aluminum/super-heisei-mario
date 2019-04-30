@@ -20,11 +20,11 @@ export default {
     position: {
       current: {
         y: 30,
-        x: 30
+        x: 200
       },
       previous: {
         y: 30,
-        x: 30
+        x: 200
       }
     },
     size: {
@@ -62,5 +62,8 @@ export default {
       next: { left: 0 }
     },
     gameHard: null
+  },
+  sound: {
+    events: []
   }
 }
