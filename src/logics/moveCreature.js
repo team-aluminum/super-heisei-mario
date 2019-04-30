@@ -1,16 +1,3 @@
-// const creatureIndex = state.creatures.findIndex(c => c.id === creatureId)
-// const creature = state.creatures.find(c => c.id === creatureId)
-// if (creatureIndex < 0) {
-//   return
-// }
-// state.creatures.splice(creatureIndex, 1, Object.assign(creature,
-//   Object.assign(creature.data, {
-//     position: {
-//       x: creature.data.position.x + x,
-//       y: creature.data.position.y + y
-//     }
-//   })
-// ))
 export default (state, { creatureId, x, y }) => {
   const currentPosition = Object.assign({}, state.player.position.current)
   const playerSize = Object.assign({}, state.player.size)
