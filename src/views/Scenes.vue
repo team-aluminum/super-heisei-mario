@@ -2,7 +2,7 @@
 .scenes(:style="{'background-image': currentBackgroundImage}")
   .scenes__screen(:style="screenStyle")
     Starting.starting(v-if="scene.current === 'starting'")
-    Goal(v-if="scene.current === 'goal' || true")
+    Goal(v-if="player.status.goal")
     Game.game(v-show="scene.current === 'game'")
     Hud
     Sound
@@ -28,6 +28,7 @@ export default {
       }
     },
     ...mapGetters({
+      player: 'getPlayer',
       scene: 'getScene',
       screen: 'getScreen'
     })

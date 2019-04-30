@@ -1,29 +1,19 @@
 <template lang="pug">
-.goaled
-  .starting__center(v-show="goaled1")
-    h1(style="color: #fff;") GOAL
+.goaled(v-show="goalScreenView")
+  h1(style="color: #fff;") GOAL
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      goaled1: true
-    }
-  },
-  computed: {
-    ...mapGetters({
-      player: 'getPlayer'
-    }),
-    goaled () {
-      return this.player.status.life > 0
+      goalScreenView: false
     }
   },
   created () {
-    if (this.restartable) {
-      this.goaled = true
-    }
+    setTimeout(() => {
+      this.goalScreenView = true
+    }, 4500)
   }
 }
 </script>
