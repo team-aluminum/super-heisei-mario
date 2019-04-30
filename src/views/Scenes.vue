@@ -2,6 +2,7 @@
 .scenes
   .scenes__screen(:style="screenStyle")
     Starting.starting(v-if="scene.current === 'starting'")
+    Goal(v-if="scene.current === 'goal' || true")
     Game.game(v-show="scene.current === 'game'")
     Hud
     Sound
@@ -15,6 +16,7 @@ export default {
     Hud: () => import('@/components/Hud'),
     Game: () => import('@/components/scenes/Game'),
     Starting: () => import('@/components/scenes/Starting'),
+    Goal: () => import('@/components/scenes/Goal'),
     Sound: () => import('@/components/Sound'),
     GameHard: () => import('@/components/GameHard')
   },
