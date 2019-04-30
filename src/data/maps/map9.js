@@ -43,7 +43,7 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       verticalGridCount: 2,
       styles: {
         backgroundImage: `url(${require('@/assets/stage9/pipe_2.png')})`,
-        backgroundSize: '30px 30px'
+        backgroundSize: '100% auto'
       }
     },
     p03: {
@@ -53,7 +53,7 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       verticalGridCount: 3,
       styles: {
         backgroundImage: `url(${require('@/assets/stage9/pipe_3.png')})`,
-        backgroundSize: '30px 30px'
+        backgroundSize: '100% auto'
       }
     },
     f20: {

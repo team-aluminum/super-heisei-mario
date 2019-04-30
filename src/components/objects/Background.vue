@@ -28,6 +28,5 @@ export default {
   height: 100%
   width: 1000px
   top: 0
-  background-color: green
   background-size: cover
 </style>
