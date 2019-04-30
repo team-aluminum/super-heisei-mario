@@ -76,9 +76,8 @@ export default {
       if (this.player.jump.timer > 0) {
         return
       }
-      const frameCount = 30
       this.$store.dispatch('setPlayerJump', {
-        frameCount,
+        frameCount: 30,
         timer: setInterval(() => {
           this.$store.dispatch('setPlayerJump', {
             frameCount: this.player.jump.frameCount - 1
@@ -92,7 +91,7 @@ export default {
     },
     smallJump () {
       this.$store.dispatch('setPlayerJump', {
-        frameCount: this.player.jump.frameCount + 10,
+        frameCount: 10,
         timer: setInterval(() => {
           this.$store.dispatch('setPlayerJump', {
             frameCount: this.player.jump.frameCount - 1

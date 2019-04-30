@@ -1,4 +1,5 @@
 import movePlayer from '@/logics/movePlayer'
+// import moveCreature from '@/logics/moveCreature'
 import { moveToPreviousMap, moveToNextMap } from '@/logics/moveMap'
 import constants from '@/constants'
 export default {
