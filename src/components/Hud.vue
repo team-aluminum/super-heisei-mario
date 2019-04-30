@@ -14,7 +14,7 @@
       .hud__top__worldName HEISEI
     .hud__top__time
       .hud__top__timeLabel TIME
-      .hud__top__worldName 100
+      .hud__top__worldName {{ time }}
 
 </template>
 
@@ -23,7 +23,9 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      centerMessage: ''
+      centerMessage: '',
+      time: 100,
+      timer: 0
     }
   },
   computed: {
@@ -31,6 +33,15 @@ export default {
       player: 'getPlayer',
       scene: 'getScene'
     })
+  },
+  created () {
+    this.timer = setInterval(() => {
+      this.time--
+      if (this.time <= 0) {
+        clearInterval(this.timer)
+        this.$store.dispatch('addPlayerEvent', 'dead')
+      }
+    }, 1000)
   },
   watch: {
     'player.status': {
@@ -106,5 +117,4 @@ export default {
       width: 150px
       text-align: right
       margin-right: 20px
-
 </style>
