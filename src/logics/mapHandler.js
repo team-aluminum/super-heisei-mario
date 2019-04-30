@@ -17,6 +17,12 @@ export default async (mapName, offset, objectAdditional) => {
         if (chipMeta.componentName === 'Block') {
           blockHandler(mapData, chip, offset, gy, gx)
         }
+        if (chipMeta.componentName === 'HardBlock') {
+          hardBlockHandler(mapData, chip, offset, gy, gx)
+        }
+        if (chipMeta.componentName === 'QuestionBlockCoin') {
+          questionBlockHandler(mapData, chip, offset, gy, gx)
+        }
         if (chipMeta.componentName === 'Floor') {
           floorHandler(mapData, chip, offset, gy, gx)
         }
@@ -31,6 +37,34 @@ export default async (mapName, offset, objectAdditional) => {
 }
 
 const blockHandler = (mapData, chip, offset, gy, gx) => {
+  const chipMeta = mapData.chipMeta[chip]
+  store.dispatch('addObject', {
+    offset,
+    object: {
+      component: chipMeta.componentName,
+      data: {
+        position: { x: gx * constants.GRID_LENGTH, y: gy * constants.GRID_LENGTH },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+        styles: chipMeta.styles
+      }
+    }
+  })
+}
+const hardBlockHandler = (mapData, chip, offset, gy, gx) => {
+  const chipMeta = mapData.chipMeta[chip]
+  store.dispatch('addObject', {
+    offset,
+    object: {
+      component: chipMeta.componentName,
+      data: {
+        position: { x: gx * constants.GRID_LENGTH, y: gy * constants.GRID_LENGTH },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+        styles: chipMeta.styles
+      }
+    }
+  })
+}
+const questionBlockHandler = (mapData, chip, offset, gy, gx) => {
   const chipMeta = mapData.chipMeta[chip]
   store.dispatch('addObject', {
     offset,
