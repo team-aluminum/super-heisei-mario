@@ -1,6 +1,9 @@
 <template lang="pug">
 .goaled(v-show="goalScreenView")
-  h1(style="color: #fff;") GOAL
+  h1(style="color: #fff;")
+    span NEXT WORLD IS
+    br
+    span.-reiwa REIWA
 </template>
 
 <script>
@@ -25,4 +28,14 @@ export default {
   background-color: black
   position: relative
   z-index: 9999
+  h1
+    position: absolute
+    margin: auto
+    height: 100px
+    width: 100%
+    top: 0
+    bottom: 0
+    text-align: center
+    span.-reiwa
+      font-size: 40px
 </style>
