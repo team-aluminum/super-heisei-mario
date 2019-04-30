@@ -1,4 +1,5 @@
 import movePlayer from '@/logics/movePlayer'
+import moveCreature from '@/logics/moveCreature'
 import { moveToPreviousMap, moveToNextMap } from '@/logics/moveMap'
 import constants from '@/constants'
 export default {
@@ -89,19 +90,7 @@ export default {
     state.creatures.push(creature)
   },
   MOVE_CREATURE (state, { creatureId, x, y }) {
-    const creatureIndex = state.creatures.findIndex(c => c.id === creatureId)
-    const creature = state.creatures.find(c => c.id === creatureId)
-    if (creatureIndex < 0) {
-      return
-    }
-    state.creatures.splice(creatureIndex, 1, Object.assign(creature,
-      Object.assign(creature.data, {
-        position: {
-          x: creature.data.position.x + x,
-          y: creature.data.position.y + y
-        }
-      })
-    ))
+    moveCreature(state, { creatureId, x, y })
   },
   DEFEAT_CREATURE (state, creatureId) {
     const creatureIndex = state.creatures.findIndex(c => c.id === creatureId)
