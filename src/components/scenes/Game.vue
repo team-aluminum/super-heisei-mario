@@ -2,8 +2,9 @@
 .game
   Player
   .game__things
-    .game__background(v-for="(background, i) in backgrounds" :key="'background:' + i"
-      :is="background.component" :data="background.data")
+    .game__background(
+      :is="this.backgrounds.component" :data="this.backgrounds.data"
+      :offsetX="0")
     .game__object.-previous(v-for="(object, i) in objects.previousMap"
       :key="'object:previous:' + i" :is="object.component"
       :data="object.data" :offsetX="map.edgesPositions.previous.left")
@@ -30,7 +31,8 @@ export default {
     Player: () => import('@/components/objects/Player'),
     Mountain: () => import('@/components/objects/Mountain'),
     Block: () => import('@/components/objects/Block'),
-    Floor: () => import('@/components/objects/Floor')
+    Floor: () => import('@/components/objects/Floor'),
+    Background: () => import('@/components/objects/Background')
   },
   computed: {
     ...mapGetters({
@@ -56,6 +58,15 @@ export default {
       })
     })
     mapHandler(this.map.nextName, 'next', true)
+    this.$store.dispatch('addBackground', {
+      object: {
+        component: 'background',
+        data: {
+          position: { x: 0, y: 0 },
+          size: { width: 100, hright: 1000 }
+        }
+      }
+    })
     this.drawTimer = setInterval(() => { this.draw() }, constants.FRAME_RATE)
   },
   methods: {
