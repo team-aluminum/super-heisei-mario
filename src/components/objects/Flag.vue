@@ -1,6 +1,7 @@
 <template lang="pug">
 .block(:style="selfStyle")
-  img.copaFlag(:src="require('@/assets/flag/copa_flag.gif')")
+  img.kuppaFlag(:src="require('@/assets/flag/kuppa_flag_2.gif')" :style="kuppaStyle" v-show="showingKuppaFlag")
+  img.marioFlag(:src="require('@/assets/flag/mario_flag_2.gif')" :style="marioStyle" v-show="showingMarioFlag")
 </template>
 
 <script>
@@ -9,9 +10,12 @@ export default {
   props: ['data', 'offsetX'],
   data () {
     return {
-      copaFlagTop: 25,
-      marioFlagTop: 90,
-      showingMarioFlagTop: false
+      kuppaFlagTop: 25,
+      marioFlagTop: 190,
+      showingMarioFlag: false,
+      showingKuppaFlag: true,
+      goaling: false,
+      timer: 0
     }
   },
   computed: {
@@ -24,9 +28,41 @@ export default {
         height: this.data.size.height + 'px'
       }, this.data.styles)
     },
+    kuppaStyle () {
+      return {
+        top: this.kuppaFlagTop + 'px'
+      }
+    },
+    marioStyle () {
+      return {
+        top: this.marioFlagTop + 'px'
+      }
+    },
     ...mapGetters({
       player: 'getPlayer'
     })
+  },
+  watch: {
+    'player.status': {
+      handler () {
+        if (this.player.status.goal && !this.goaling) {
+          this.goaling = true
+          this.showingMarioFlag = true
+          const height = this.player.position.current.y
+          this.timer = setInterval(() => {
+            this.kuppaFlagTop += 3
+            if (this.marioFlagTop >= 220 - height) {
+              this.marioFlagTop -= 3
+            }
+            if (this.kuppaFlagTop >= 190) {
+              this.showingKuppaFlag = false
+              clearInterval(this.timer)
+            }
+          }, 20)
+        }
+      },
+      deep: true
+    }
   }
 }
 </script>
@@ -36,10 +72,14 @@ export default {
   position: absolute
   background-position: right bottom
   background-repeat: no-repeat
-  .copaFlag
+  .kuppaFlag
     position: absolute
     width: 40px
     height: 30px
     right: 16px
-    top: 25px
+  .marioFlag
+    position: absolute
+    width: 40px
+    height: 30px
+    right: 16px
 </style>
