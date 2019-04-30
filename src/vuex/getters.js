@@ -22,6 +22,9 @@ export default {
   getScreen (state) {
     return state.screen
   },
+  getCreatures (state) {
+    return state.creatures
+  },
   getMap (state) {
     return state.map
   }

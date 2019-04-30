@@ -51,6 +51,7 @@ export default {
       backgrounds: []
     }
   },
+  creatures: [],
   map: {
     previousName: null,
     currentName: null,

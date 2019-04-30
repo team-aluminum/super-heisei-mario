@@ -54,6 +54,9 @@ export default {
       if (this.player.events.indexOf('dead') >= 0) {
         this.dead()
       }
+      if (this.player.events.indexOf('smallJump') >= 0) {
+        this.smallJump()
+      }
       if (this.player.events.length > 0) {
         this.$store.dispatch('clearPlayerEvent')
       }
@@ -76,6 +79,20 @@ export default {
       const frameCount = 30
       this.$store.dispatch('setPlayerJump', {
         frameCount,
+        timer: setInterval(() => {
+          this.$store.dispatch('setPlayerJump', {
+            frameCount: this.player.jump.frameCount - 1
+          })
+          if (this.player.jump.frameCount <= 0) {
+            this.stopJump()
+          }
+          this.$store.dispatch('movePlayer', { x: 0, y: 8 })
+        }, constants.FRAME_RATE)
+      })
+    },
+    smallJump () {
+      this.$store.dispatch('setPlayerJump', {
+        frameCount: this.player.jump.frameCount + 10,
         timer: setInterval(() => {
           this.$store.dispatch('setPlayerJump', {
             frameCount: this.player.jump.frameCount - 1
