@@ -11,7 +11,7 @@ emp emp qbc emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
-blk qbk blk qbc blk emp emp emp emp emp emp emp emp emp emp emp emp emp qbk emp
+blk qbk blk qbc blk emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem fem
 emp emp emp emp emp emp emp emp fem fem emp emp emp emp emp emp emp emp fem fem
 emp emp emp emp emp emp emp emp p02 fem emp emp emp emp emp emp emp emp p03 fem
@@ -51,7 +51,7 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       verticalGridCount: 2,
       styles: {
         backgroundImage: `url(${require('@/assets/stage2/pipe_2.png')})`,
-        backgroundSize: '30px 30px'
+        backgroundSize: '100% auto'
       }
     },
     p03: {
@@ -61,7 +61,7 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       verticalGridCount: 3,
       styles: {
         backgroundImage: `url(${require('@/assets/stage2/pipe_3.png')})`,
-        backgroundSize: '30px 30px'
+        backgroundSize: '100% auto'
       }
     },
     f20: {

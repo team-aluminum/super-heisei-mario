@@ -27,7 +27,7 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
       verticalGridCount: 4,
       styles: {
         backgroundImage: `url(${require('@/assets/stage3/pipe_4.png')})`,
-        backgroundSize: '30px 30px'
+        backgroundSize: '100% auto'
       }
     },
     f20: {

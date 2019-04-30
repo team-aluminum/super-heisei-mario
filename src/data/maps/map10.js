@@ -102,11 +102,12 @@ f20 fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem fem
     },
     flg: {
       empty: false,
-      componentName: 'HardBlock',
-      horizontalGridCount: 11,
+      componentName: 'Flag',
+      horizontalGridCount: 8,
+      verticalGridCount: 2,
       styles: {
         backgroundImage: `url(${require('@/assets/stage10/falg.png')})`,
-        backgroundSize: '30px 30px'
+        backgroundSize: 'contain'
       }
     },
     f20: {
