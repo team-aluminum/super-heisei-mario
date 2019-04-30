@@ -1,5 +1,5 @@
 <template lang="pug">
-.scenes
+.scenes(:style="{'background-image': currentBackgroundImage}")
   .scenes__screen(:style="screenStyle")
     Starting.starting(v-if="scene.current === 'starting'")
     Goal(v-if="scene.current === 'goal' || true")
@@ -31,6 +31,25 @@ export default {
       scene: 'getScene',
       screen: 'getScreen'
     })
+  },
+  created () {
+    this.currentBackgroundImage = this.randomBackground()
+  },
+  data () {
+    return {
+      backgroundImages: [
+        'blue', 'pink', 'red', 'yellow', 'yellow_2'
+      ],
+      currentBackgroundImage: ''
+    }
+  },
+  methods: {
+    randomBackground: function () {
+      const random = Math.floor(Math.random() * 5)
+      const image = require('@/assets/appBackgrounds/' + this.backgroundImages[random] + '_bg.png')
+
+      return `url(${image})`
+    }
   }
 }
 </script>
@@ -43,7 +62,9 @@ export default {
   min-width: 800px
   position: relative
   overflow: hidden
-  background-image: url('~@/assets/appBackgrounds/yellow_bg.png')
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   &__screen
     position: absolute
     top: 0
