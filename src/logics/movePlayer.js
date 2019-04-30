@@ -16,7 +16,7 @@ export default (state, { x, y }) => {
 
   const collidingObjects = targetObjects.filter(object => {
     const objectPosition = {
-      x: object.data.position.x + (object.data.type === 'creature' ?  0: state.map.edgesPositions.current.left),
+      x: object.data.position.x + (object.data.type === 'creature' ?  0 : state.map.edgesPositions.current.left),
       y: object.data.position.y
     }
     const objectSize = object.data.size
