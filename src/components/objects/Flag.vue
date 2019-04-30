@@ -57,6 +57,9 @@ export default {
             if (this.kuppaFlagTop >= 190) {
               this.showingKuppaFlag = false
               clearInterval(this.timer)
+              setInterval(() => {
+                this.$store.dispatch('addPlayerEvent', 'finish')
+              }, 2000)
             }
           }, 20)
         }
