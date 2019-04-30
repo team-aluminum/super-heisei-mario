@@ -48,13 +48,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@font-face
-  font-family: 'PixelEmulator'
-  src: url('~@/assets/font/PixelEmulator.eot?#iefix') format('embedded-opentype'),  url('~@/assets/font/PixelEmulator.woff') format('woff'), url('~@/assets/font/PixelEmulator.ttf')  format('truetype'), url('~@/assets/font/PixelEmulator.svg#PixelEmulator') format('svg')
-  font-weight: normal
-  font-style: normal
 .hud
-  font-family: 'PixelEmulator'
   position: absolute
   width: 100%
   height: 100%

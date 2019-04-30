@@ -14,6 +14,9 @@
     .game__object.-next(v-for="(object, i) in objects.nextMap"
       :key="'object:next:' + i" :is="object.component"
       :data="object.data" :offsetX="map.edgesPositions.next.left")
+  .game__creatures
+    .game__creature(v-for="(creature, i) in creatures" :key="'creature:' + i"
+      :is="creature.component" :data="creature.data" :creatureId="creature.id")
 </template>
 
 <script>
@@ -32,13 +35,15 @@ export default {
     Mountain: () => import('@/components/objects/Mountain'),
     Block: () => import('@/components/objects/Block'),
     Floor: () => import('@/components/objects/Floor'),
-    Background: () => import('@/components/objects/Background')
+    Background: () => import('@/components/objects/Background'),
+    Goomba: () => import('@/components/creatures/Goomba')
   },
   computed: {
     ...mapGetters({
       player: 'getPlayer',
       objects: 'getObjects',
       backgrounds: 'getBackgrounds',
+      creatures: 'getCreatures',
       map: 'getMap'
     }),
     playerAlive () { return this.player.status.alive },
@@ -68,6 +73,15 @@ export default {
       }
     })
     this.drawTimer = setInterval(() => { this.draw() }, constants.FRAME_RATE)
+
+    this.$store.dispatch('addCreature', {
+      component: 'Goomba',
+      data: {
+        position: { x: 300, y: 30 },
+        size: { width: constants.GRID_LENGTH, height: constants.GRID_LENGTH },
+        type: 'creature'
+      }
+    })
   },
   methods: {
     keydown (e) {
