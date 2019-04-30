@@ -1,6 +1,6 @@
 export default {
   previousMapName: 'map9',
-  nextMapName: null,
+  nextMapName: 'map11',
   chips: `
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp
 emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp emp fem emp
